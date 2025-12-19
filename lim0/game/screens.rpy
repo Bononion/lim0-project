@@ -289,27 +289,34 @@ style quick_button_text:
 
 screen navigation():
 
-    vbox:
+    fixed:
         style_prefix "navigation"
-
-        xpos gui.navigation_xpos
-        yalign 0.5
 
         spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            imagebutton auto "gui/mm_start_%s.png" xpos 527 ypos 763 action Start()
 
-        else:
+        elif not _in_replay:
 
             textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        #textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        imagebutton auto "gui/mm_load_%s.png" xpos 572 ypos 924 action ShowMenu("load")
+
+        #textbutton _("Preferences") action ShowMenu("preferences")
+
+        imagebutton auto "gui/mm_option_%s.png" xpos 561 ypos 855 action ShowMenu("preferences")
+
+        imagebutton auto "gui/mm_dn_%s.png" xpos 612 ypos 193 action ShowMenu("dn")
+
+        imagebutton auto "gui/mm_gk_%s.png" xpos 730 ypos 707 action ShowMenu("gk")
+
+        imagebutton auto "gui/mm_pl_%s.png" xpos 302 ypos 263 action ShowMenu("pl")
 
         if _in_replay:
 
@@ -330,7 +337,7 @@ screen navigation():
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            imagebutton auto "gui/mm_quit_%s.png" xpos 586 ypos 957 action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -360,7 +367,6 @@ screen main_menu():
     ## This empty frame darkens the main menu.
     frame:
         style "main_menu_frame"
-
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
     use navigation
@@ -1138,6 +1144,32 @@ style help_label_text:
 ## Additional screens
 ################################################################################
 
+screen gk:
+    tag menu
+    frame:
+        xalign 0.5
+        yalign 0.5
+        text "Something about gia khieu"
+
+    textbutton _("Return") action Return() style "return_button"
+
+screen dn:
+    tag menu
+    frame:
+        xalign 0.5
+        yalign 0.5
+        text "Something about dai nghia"
+
+    textbutton _("Return") action Return() style "return_button"
+
+screen pl:
+    tag menu
+    frame:
+        xalign 0.5
+        yalign 0.5
+        text "Something about phong le"
+
+    textbutton _("Return") action Return() style "return_button"
 
 ## Confirm screen ##############################################################
 ##
