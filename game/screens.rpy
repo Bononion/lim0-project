@@ -292,52 +292,32 @@ screen navigation():
     fixed:
         style_prefix "navigation"
 
-        spacing gui.navigation_spacing
+        # ONLY show the big main-menu buttons if the main_menu screen is actually displayed.
+        if renpy.get_screen("main_menu"):
 
-        if main_menu:
+            imagebutton auto "gui/mm_start_%s.png"  xpos 527 ypos 763 action Start()
+            imagebutton auto "gui/mm_load_%s.png"   xpos 572 ypos 924 action ShowMenu("load")
+            imagebutton auto "gui/mm_option_%s.png" xpos 561 ypos 855 action ShowMenu("preferences")
+            imagebutton auto "gui/mm_dn_%s.png"     xpos 612 ypos 193 action ShowMenu("dn")
+            imagebutton auto "gui/mm_gk_%s.png"     xpos 730 ypos 707 action ShowMenu("gk")
+            imagebutton auto "gui/mm_pl_%s.png"     xpos 302 ypos 263 action ShowMenu("pl")
 
-            imagebutton auto "gui/mm_start_%s.png" xpos 527 ypos 763 action Start()
+            if renpy.variant("pc"):
+                imagebutton auto "gui/mm_quit_%s.png" xpos 586 ypos 957 action Quit(confirm=True)
 
-        elif not _in_replay:
+        else:
+            # We are in submenus (preferences/load/etc) OR in-game menus.
+            # Put submenu navigation here so it doesn't overlap your settings UI.
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("Return") action Return()
 
-            textbutton _("Save") action ShowMenu("save")
+            if not main_menu:
+                textbutton _("Main Menu") action MainMenu()
 
-        #textbutton _("Load") action ShowMenu("load")
+            if _in_replay:
+                textbutton _("End Replay") action EndReplay(confirm=True)
 
-        imagebutton auto "gui/mm_load_%s.png" xpos 572 ypos 924 action ShowMenu("load")
 
-        #textbutton _("Preferences") action ShowMenu("preferences")
-
-        imagebutton auto "gui/mm_option_%s.png" xpos 561 ypos 855 action ShowMenu("preferences")
-
-        imagebutton auto "gui/mm_dn_%s.png" xpos 612 ypos 193 action ShowMenu("dn")
-
-        imagebutton auto "gui/mm_gk_%s.png" xpos 730 ypos 707 action ShowMenu("gk")
-
-        imagebutton auto "gui/mm_pl_%s.png" xpos 302 ypos 263 action ShowMenu("pl")
-
-        if _in_replay:
-
-            textbutton _("End Replay") action EndReplay(confirm=True)
-
-        elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
-
-        if renpy.variant("pc"):
-
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            imagebutton auto "gui/mm_quit_%s.png" xpos 586 ypos 957 action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -376,11 +356,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            #text "[config.name!t]":
+                #style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+            #text "[config.version]":
+                #style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -393,7 +373,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
