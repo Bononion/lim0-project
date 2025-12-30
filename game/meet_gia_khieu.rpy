@@ -1,61 +1,61 @@
 # This is the scene where MC meets Gia Khieu for the first time and thanks him (or not)
 
 label meet_gia_khieu:
-    scene bg alley
+    show bg alley2
     
-    show unknown at center
-    # Description of Gia Khiếu
-    "(Trước mặt bạn là một cậu bạn trạc tuổi, mặc chiếc áo trắng, 
-    như công nhân nhà máy sữa, đuôi áo thò ra khỏi quần.)"
+    "Bạn loại bỏ những suy nghĩ buồn cười kia và quay đầu hướng vào chiếc hẻm đang chờ đợi bạn."
     
-    "(Tay phải đang cầm một cây cá viên chiên chấm sốt, một tay cậu lủng lẳng bịch nilon, 
-    bên trong là hai hộp xốp bị dầu thấm ra ngoài còn đang toả hơi nóng, nhìn là biết mới mua.)"
+    "Bỗng bạn nghe thấy một âm thanh bên cạnh, hình như là một tiếng ngáp. Khi bạn nhìn sang thì thấy một cậu bạn trạc tuổi đi ngang qua."
     
-    "(Vết nước sốt đỏ au dính lên vạt áo, mà cậu ấy vẫn tỉnh bơ aura walk 
-    như thể sắp bước vào buổi hội thảo TED.)"
+    show gk back:
+        xalign 0.5
+        yalign 0
+
+    "Cậu ta mặc một cái áo để mà nói đúng thì trông một chín một mười với đồng phục công nhân nhà máy sữa."
     
-    "(Gương mặt cậu lấm tấm mồ hôi (hoặc nước dãi, không rõ lắm).)"
+    "Trong chiếc cặp của cậu ta còn lấp ló một vật màu trắng, khi bạn nheo mắt nhìn kỹ thì đó lại là một cái gối (?)"
     
-    "(Có vẻ cái nắng Sài Gòn chiều khiến ai cũng đổ mồ hôi, 
-    người nào người nấy như tan chảy trong không khí oi ả — trừ cậu.)"
+    "Bạn lại ngửi được mùi hương thơm ngon của xiên bẩn khi cậu ta đi ngang qua, hóa ra là từ hai cái hộp xốp còn nóng hổi cậu ta đang xách lủng lẳng trên tay"
     
-    "(Không phải vì chịu được nóng, mà vì cậu chẳng vội gì để phản ứng với thời tiết. 
-    (Chắc là do cậu lười tiết mồ hôi.))"
+    "Rồi bạn nhận ra cậu ta hình như cũng đang đi tới chỗ bạn cần tới, thôi tiện thể liền bám theo cậu ta để đỡ phải dò đường"
     
-    "(Tiếng dép lê xoèn xoẹt trên nền xi măng vang lên giữa không gian vắng lặng.)"
-    
-    "(Bạn lặng lẽ đi đằng sau cậu ta, chắc đây cũng là một học sinh cùng lớp học thêm đang tới lớp.)"
-    
-    mc "Ủa sao đi học mà như đi picnic vậy 3..."
+    "Khi gần tới ngã ba hẻm, vì cậu bạn kia đi rất chậm chạp nên bạn không để ý cậu ta đã dừng lại, bạn suýt đâm sầm vào cậu ta nếu không phản ứng đủ nhanh"
     
     # Arriving at the gate
-    "(Tới ngã ba hẻm, cậu học sinh đứng lại, bạn nhìn sang căn nhà nơi cậu ta đứng.)"
-    
-    "(Trước mắt là một cánh cổng sắt đen đơn giản, không có bảng hiệu nào. 
-    Nhưng từ bên trong có tiếng ồn vọng ra, bạn biết mình đã đến đúng chỗ.)"
-    
-    "(Bạn bước vào trong, cậu học sinh thả đôi dép của mình một cách lộn xộn vào đống giày dép bên phải, 
-    bạn thấy vậy cũng để gọn gàng giày của bạn ngay kế bên.)"
-    
-    "(Cậu học sinh mở cửa, không nhìn ra sau nhưng vẫn giữ cửa mở cho bạn.)"
+
+    show bg gate
+
+    show gk back:
+        xalign 0.5
+        yalign 0
+
+    "Bạn quay sang phải nhìn, trước mắt bạn là một ngôi nhà có chiếc cổng sắt đen đơn giản, còn có thể nghe thấy tiếng ồn bên trong vọng ra, bạn nhận ra đây chính là lớp học thêm mẹ bạn đã đăng kí cho bạn."
+
+    "Bạn chợt nhớ mẹ bạn đã dặn bạn phải tập trung học, nhưng mặc dù bạn vào muộn 2 tuần so với các bạn khác thì vẫn nên hòa đồng và học hỏi mọi người."
+
+    "Cậu bạn kia mở cổng sắt và bước vào trong. Sau đó cậu ta đặt đôi dép lê màu hồng neon (bạn còn không biết chỗ nào bán được đôi dép màu xấu như vậy) một cách lộn xộn vào đống giày dép đang tràn lan ở lối vào."
+
+    "Bạn cũng làm theo và đặt đôi giày của mình gọn gàng bên cạnh."
+
+    "Khi cậu học sinh kia mở chiếc cửa bước vào lớp học, dù không nhìn ra sau nhưng bạn thấy cậu ta đang giữ cửa mở cho bạn theo sau"
     
     unknown "..."
     
     # CHOICE: Thank Khiếu or not
-    show unknown
+    hide gk
 
     menu:
-        "Cảm ơn cậu":
+        "Cảm ơn cậu ta":
             $ fp_gk += 1
             $ thanked_khieu = True
-            show unknown at nod_effect
 
-            "(Cậu ta không nói gì nhưng bạn có thể thấy cậu ta gật đầu một cái nhẹ.)"
+            mc "Cảm ơn cậu."
+            unknown "..."
         
         "*không nói gì*":
             pass
     
     hide unknown
-    "(Bạn bước vào trong.)"
+    "Bạn bước vào trong."
     
     return

@@ -97,21 +97,30 @@ style frame:
 
 screen say(who, what):
 
+    # Dictionary map tag → background image
+    $ namebox_bg_dict = {
+        "gk": "gui/gk_dia.png",
+        "uk": "gui/unknown_dia.png",
+        "mc": "gui/mc_dia.png",
+        "cd": "gui/cd_dia.png"
+    }
+
+    # Lấy tag của nhân vật, mặc định "namebox.png"
+    $ tag = renpy.get_say_image_tag()  # hoặc bạn dùng who.tag nếu đặt tag trong Character
+    $ namebox_bg = namebox_bg_dict.get(tag, "gui/namebox.png")
+
     window:
         id "window"
-
+        
         if who is not None:
-
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                background namebox_bg  # áp dụng background tùy theo tag
 
         text what id "what"
 
 
-    ## If there's a side image, display it above the text. Do not display on the
-    ## phone variant - there's no room.
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
@@ -137,6 +146,8 @@ style window:
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+
+
 style namebox:
     xpos gui.name_xpos
     xanchor gui.name_xalign
@@ -159,6 +170,7 @@ style say_dialogue:
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
 
+    color "#000000"
     adjust_spacing False
 
 ## Input screen ################################################################
@@ -190,11 +202,11 @@ style input_prompt is default
 style input_prompt:
     xalign gui.dialogue_text_xalign
     properties gui.text_properties("input_prompt")
-
+    color "#000000"
 style input:
     xalign gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
-
+    color "#FFE123"
 
 ## Choice screen ###############################################################
 ##
@@ -226,8 +238,26 @@ style choice_vbox:
 style choice_button is default:
     properties gui.button_properties("choice_button")
 
-style choice_button_text is default:
-    properties gui.text_properties("choice_button")
+    background Frame("gui/normal_choice.png", 0,0,0,0)
+    hover_background Frame("gui/normal_choice.png", 0,0,0,0)
+
+    xminimum 1000
+    yminimum 100
+
+style choice_button_text:
+    xalign 0.5
+    yalign 0.5
+
+    color "#000000"
+    hover_color "#123335"
+
+    size 32
+    hover_size 36
+
+    bold False
+    hover_bold True
+
+
 
 
 ## Quick Menu screen ###########################################################
@@ -485,7 +515,7 @@ style game_menu_label_text is gui_label_text
 style return_button is navigation_button
 style return_button_text is navigation_button_text
 
-style game_menu_outer_frame:
+style game_menu_outer_frame:    
     bottom_padding 45
     top_padding 180
 
