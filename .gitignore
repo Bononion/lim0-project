@@ -24,3 +24,17 @@
 /dialogue.tab
 /dialogue.txt
 /strings.json
+
+# System files to ignore
+.DS_Store
+.vscode/
+
+# Keep only: game/, docs/, .kilocode/
+# Everything else at root level is ignored
+/*
+!/game/
+!/docs/
+!/.kilocode/
+
+# But keep .gitignore itself
+!/.gitignore

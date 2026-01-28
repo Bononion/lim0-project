@@ -50,10 +50,15 @@ label meet_gia_khieu:
             $ thanked_khieu = True
 
             mc "Cảm ơn cậu."
-            unknown "..."
+            show gk neuNTalk at Transform(xpos=0.3, ypos=0.06)
+            unknown "*gật đầu* ..."
+            hide gk neuNTalk
         
-        "*không nói gì*":
-            pass
+        "Không nói gì":
+            mc "..."
+            show gk neuNTalk at Transform(xpos=0.3, ypos=0.06)
+            unknown "..."
+            hide gk neuNTalk
     
     hide unknown
     "Bạn bước vào trong."

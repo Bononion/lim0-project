@@ -1,88 +1,253 @@
 label gia_khieu_sleeping_scene:
   # All routes converge here
-  show gk sleeping at left
+  show gk sleeping at Transform(xpos=0.3, ypos=0.06)
   
   "KHỌTTTTTTTTTTTTTTTTTTTTTTTTTT"
 
-  "(Gia Khiếu bất ngờ phát ra tiếng ngáy 'khọt' rõ to. Cả ba cùng quay sang.)"
+  "(Gia Khiếu bất ngờ phát ra tiếng ngáy 'khọt' rõ to. Bạn và hai người kia cùng quay sang.)"
   
-  show pl shit at center
+  show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
   pl "Trời ơi, nó ngủ chảy ke lên tập tao nữa kìa."
 
-  show dn smile at right
-  dn "Thằng đó là Gia Khiếu, học Phổ Thông Năng Khiếu ngay gần đây á."
-  dn "Nếu so tính nhẩm thì chắc máy Casio cũng thua Khiếu mấy bậc."
-  dn "Mỗi tội là dung lượng pin còn kém hơn cả cái máy tính cầm tay, giải được nửa bài là ngủ gật rồi."
+  show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+  dn "Thở ra: \"Đó là Gia Khiếu, học Phổ Thông Năng Khiếu ngay gần lớp này á.\""
   
-  pl "Ê Khiếu, dậy chào bạn mới kìa mày!"
+  hide dn smileTalk
+  show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "(Bạn bất ngờ khi thấy cậu ta ngủ gật trong lớp)"
+  
+  hide dn smileNTalk
+  show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "Chắc dạo này mệt quá, thấy ngủ nhiều hơn bình thường"
+  
+  hide dn smileTalk
+  show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "Có gì cậu bỏ qua nhé, nó không cố ý đâu"
+  
+  hide dn smileNTalk
+  show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "(Nhìn thấy bạn có vẻ nhìn Gia Khiếu với ánh mắt hơi nghi ngờ, Nghĩa bèn nói tiếp)"
+  
+  hide dn smileTalk
+  show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "Nhìn vậy chứ giỏi lắm đó nha"
+  
+  hide dn smileNTalk
+  show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "Chắc nó thua cái máy tính Casio mỗi cái tem chống hàng giả thôi."
+  
+  hide dn smileTalk
+  show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+  
+  dn "À thua pin nữa, thằng này giải toán 5p là phải sạc pin 3 tiếng lận."
+  
+  hide dn smileNTalk
+  
+  pl "(khều nhẹ Khiếu): Ê Khiếu, dậy chào bạn mới kìa!"
 
-  show gk sleeping at left
-  gk "Chào... bạn..."
+  show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
+  gk "(mắt lim dim, lí nhí): \"Chào...\""
 
-  dn "Đó, [player_name] thấy chưa? Thằng này suốt ngày chỉ biết ngủ."
+  show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+  show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
+  
+  dn "Đó, ông/bà thấy chưa? Thằng này suốt ngày chỉ biết ngủ."
+  
+  hide dn smileTalk
+  show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+  hide pl annoyedNTalk
+  show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
+  
   pl "Mày dậy coi! Ướt hết tập tao rồi!"
-
+  
+  hide dn smileNTalk
+  hide pl annoyedTalk
 
   menu give_tissue:
-      "Đây tớ có giấy ăn này":
+      "Đưa khăn giấy cho Phong Lê và Gia Khiếu":
           $ gave_tissue = True
-          $ fp_gk += 1
-          mc "Mình có giấy ăn nè cậu lấy lau miệng đi, bên khóe miệng vẫn còn dính nước miếng á."
-          gk "Cảm ơn..."
-          gk "Gia Khiếu, có việc gì cần hỏi thì gọi, ngủ tiếp đây."
+          $ fp_gk += 2
+          mc "(Bạn đặt vài tờ khăn giấy trước mặt Gia Khiếu, sau đó bạn lấy giấy để lên chỗ bẩn trên tập. Hơi gớm thật, nhưng may đây là tập cũ.)"
+          
+          pl "Xin lỗi MC nhiều nha, để mình nói nó không lần sau bị vậy tiếp nữa"
+          
+          gk "(Gia Khiếu cũng lờ mờ mở mắt nhìn bạn, tay cầm giấy ăn nhưng không dùng để lau mà chỉ để đấy)"
+          
+          gk "(Khi thấy đã lỡ làm ướt tập bạn, cậu ấy có vẻ tỉnh hơn một chút)"
+          gk "Xin lỗi… bữa sau mang tập mới bù"
+          gk "...Bình thường không ai ngồi đây"
+          gk "...Để …quay qua bên kia ngủ"
+          
           mc "{i}Lạ đời vậy...{/i}"
           
-          "(Gia Khiếu lại tiếp tục gục xuống bàn ngủ, lần này chảy nước dãi lên tập của chính mình.)"
+          "(Gia Khiếu lại tiếp tục gục xuống bàn ngủ, lần này là chảy nước dãi lên tập của chính mình.)"
           
-          pl "Này lại ngủ nữa à, mày làm xong bài chưa đó?"
+          pl "Ngủ tiếp hả ba, mày làm xong bài chưa"
           
-          gk "...rồi."
+          gk "(vẫn nằm trên bàn) \"...rồi\""
           
-          pl "Đáp án câu 10 là gì?"
+          pl "Thế đáp án câu 10 là gì"
           
-          gk "B."
+          gk "B"
           
-          pl "Câu 3?"
+          pl "Câu 3 thì sao"
           
-          gk "A."
+          gk "A"
           
-          pl "Câu 12?"
+          pl "Còn câu 12"
           
-          gk "A."
+          gk "A"
           
-          pl "Đâu, đáp án phải là C chứ."
+          pl "Đâu, C mà"
           
-          gk "Mày chia 2 lúc nguyên hàm chưa?"
+          gk "Chưa đổi cận lúc nguyên hàm"
           
-          pl "..."
+          pl "0_0 (bro emotes)"
           
-          "(Phong Lê im lặng kiểm tra lại bài.)"
+          menu:
+              "Cảm thán Gia Khiếu ngủ nhưng vẫn làm đủ bài":
+                  show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+                  show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
+                  
+                  dn "Ừm thực ra nhiều khi không phải nó ngủ đâu"
+                  
+                  hide dn neutralTalk
+                  show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
+                  
+                  dn "Kiểu nó đọc đề rồi nằm nghĩ á"
+                  
+                  hide dn neutralNTalk
+                  show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+                  
+                  dn "Nhìn vào có vẻ hơi ảo ma chứ nó có làm bài như bọn mình hết"
+                  
+                  hide dn neutralTalk
+                  hide pl annoyedNTalk
+                  
+                  mc "(Bạn ồ một cái và gật đầu)"
+                  
+                  show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+                  
+                  dn "(Nghĩa nói xong liền quay qua phía Gia Khiếu)"
+                  
+                  hide dn neutralTalk
+                  show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
+                  
+                  dn "Này dậy đi, tra đáp án với tao nữa"
+                  
+                  hide dn neutralNTalk
+                  show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
+                  
+                  gk "(vẫn nằm trên bàn): \"đanggg..ngủ..mà..\""
+                  
+                  hide gk sleepingNTalk
+              
+              "Nói rằng Gia Khiếu nói chuyện có vẻ hơi cộc cằn":
+                  $ fp_gk -= 2
+                  show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
+                  
+                  pl "Không phải đâu do nó nói chuyện lèm bèm nên nhiều chữ nghe không ra á"
+                  
+                  hide pl annoyedTalk
+                  show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
+                  
+                  pl "Mình chơi với nó phải vài năm mới bắt đầu nghe hết được mấy từ nó nói trong câu"
+                  
+                  hide pl annoyedNTalk
+                  show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
+                  
+                  pl "Quen rồi là biết nó nói có chủ ngữ vị ngữ đàng hoàng đó"
+                  
+                  hide pl annoyedTalk
+                  
+                  mc "(Bạn ồ một cái và gật đầu)"
+                  
+                  mc "(Bạn thấy Nghĩa đang quay qua phía Gia Khiếu)"
+                  
+                  show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+                  
+                  dn "Này dậy đi, tra đáp án với tao nữa"
+                  
+                  hide dn neutralTalk
+                  show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
+                  show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
+                  
+                  gk "(vẫn nằm trên bàn): \"đanggg..ngủ..mà..\""
+                  
+                  hide dn neutralNTalk
+                  hide gk sleepingNTalk
           
-          dn "Gia Khiếu tra đáp án với tao nữa."
+          dn "Gia Khiếu tra đáp án với tao nữa"
           
           gk "Hừ..."
 
-      "Cậu đóng tiền đi học mà chỉ ngủ thôi à":
-          gk "...Mình vẫn nghe giảng mà."
-          gk "Mà cậu là ai?"
+      "Hỏi Gia Khiếu tại sau cậu ta đóng tiền đi học để ngủ":
+          $ fp_gk -= 2
+          show gk annoyedTalk at Transform(xpos=0.3, ypos=0.06)
+          
+          gk "(Gia Khiếu không gỡ bịt mắt ra, nhưng bạn cảm thấy giọng cậu ta hơi khó chịu)"
+          
+          hide gk annoyedTalk
+          show gk annoyedNTalk at Transform(xpos=0.3, ypos=0.06)
+          
+          gk "… Vẫn nghe giảng mà"
+          
+          hide gk annoyedNTalk
+          show gk annoyedTalk at Transform(xpos=0.3, ypos=0.06)
+          
+          gk "Nghe xong làm bài tiếp"
+          
+          hide gk annoyedTalk
+          show gk annoyedNTalk at Transform(xpos=0.3, ypos=0.06)
+          
+          gk "...Mà ai đây?"
+          
+          hide gk annoyedNTalk
 
-          pl "Là bạn mới trong lớp đó, nãy mày mới chào luôn mà."
+          pl "Bạn mới trong lớp đó, nãy mày chào rồi mà"
           
-          gk "Ai hỏi?"
+          gk "Mới đổi tên hả, tao hỏi bạn mới"
           
-          pl "???"
+          pl "??? *flashes serious monkey meme"
           
-          gk "Có học mà, chỉ là làm xong bài rồi nên mình ngủ tí thôi."
+          gk "(vẫn nằm trên bàn, giọng ngái ngủ): \"Cả làm xong bài rồi\""
           
-          mc "Ủa nhưng mà mới vào học được 10 phút mà..."
+          mc "(Bạn nhắc đến việc từ lúc vào học đến giờ mới được 15 phút thôi)"
           
-          dn "Nhiêu đó là đủ cho Khiếu rồi á."
-          dn "Tiện thể mày tra đáp án với tao được không?"
+          show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
           
-          gk "Ờ..."
+          dn "Thì do nó là casio mà, làm nhanh lắm"
+          
+          hide dn neutralTalk
+          show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
+          
+          dn "(Nói xong Nghĩa quay qua chỗ Gia Khiếu)"
+          
+          hide dn neutralNTalk
+          show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+          
+          dn "Ê tiện thể mày tra đáp án với tao cái"
+          
+          hide dn neutralTalk
+          show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
+          show gk wakingupTalk at Transform(xpos=0.3, ypos=0.06)
+          
+          gk "Ờ…"
+          
+          hide dn neutralNTalk
+          hide gk wakingupTalk
+          
+          mc "(Bạn thấy những người học giỏi thật kì lạ…)"
           
           mc "{i}(cười trừ) Người học giỏi là như này hả...{/i}"
-  show gk sleeping at left
+  
+  show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
   
   hide gk
   hide dn

@@ -102,7 +102,9 @@ screen say(who, what):
         "gk": "gui/gk_dia.png",
         "uk": "gui/unknown_dia.png",
         "mc": "gui/mc_dia.png",
-        "cd": "gui/cd_dia.png"
+        "cd": "gui/cd_dia.png",
+        "dn": "gui/dn_dia.png",
+        "pl": "gui/pl_dia.png"
     }
 
     # Lấy tag của nhân vật, mặc định "namebox.png"

@@ -19,6 +19,8 @@ label setup_player:
   # Story Flags
   $ thanked_khieu = False
   $ phong_name = "Phong"  # Can change to "Phong Lê"
+  # Normalize to canonical enums used by seat UI + route dispatch.
+  # Valid values: "seat1" (PL middle), "seat2" (DN right), "seat3" (GK left), "standing"
   $ seating_choice = ""
   $ accepted_food = False
   
@@ -36,5 +38,9 @@ label setup_player:
 
       "Female":
           $ player_gender = "bà"
+
+  # Defensive default in case future branches `jump`/`call` without visiting seat UI.
+  if seating_choice == "":
+      $ seating_choice = "standing"
           
   return
