@@ -188,7 +188,11 @@ style say_dialogue:
 screen input(prompt):
     style_prefix "input"
 
+    # Hide all character sprites when input dialog appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
+
     window:
+        style "tutorial_window"
 
         vbox:
             xanchor gui.dialogue_text_xalign
@@ -221,6 +225,43 @@ style input:
 screen choice(items):
     style_prefix "choice"
 
+    # Hide all character sprites when choice menu appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
+
+    vbox:
+        for i in items:
+            textbutton i.caption action i.action
+
+## Tutorial say screen #########################################################
+##
+## A special dialogue box style for tutorial/name input sequences.
+## This uses a different visual style to distinguish tutorial content.
+##
+screen tutorial_say(who, what):
+    style_prefix "tutorial"
+    
+    window:
+        id "window"
+        style "tutorial_window"
+        
+        if who is not None:
+            window:
+                id "namebox"
+                style "tutorial_namebox"
+                text who id "who"
+        
+        text what id "what"
+    
+    if not renpy.variant("small"):
+        add SideImage() xalign 0.0 yalign 1.0
+
+## Tutorial choice screen #######################################################
+##
+## A special choice screen for tutorial sequences with different styling.
+##
+screen tutorial_choice(items):
+    style_prefix "tutorial_choice"
+    
     vbox:
         for i in items:
             textbutton i.caption action i.action
@@ -260,6 +301,68 @@ style choice_button_text:
     hover_bold True
 
 
+
+
+style tutorial_window is default
+style tutorial_namebox is default
+style tutorial_say_label is default
+style tutorial_say_dialogue is default
+style tutorial_choice_vbox is vbox
+style tutorial_choice_button is button
+style tutorial_choice_button_text is button_text
+
+style tutorial_window:
+    xalign 0.5
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+
+style tutorial_namebox:
+    xpos gui.name_xpos
+    xanchor gui.name_xalign
+    xsize gui.namebox_width
+    ypos gui.name_ypos
+    ysize gui.namebox_height
+    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    padding gui.namebox_borders.padding
+
+style tutorial_say_label:
+    properties gui.text_properties("name", accent=True)
+    xalign gui.name_xalign
+    yalign 0.5
+    color "#FFE123"
+
+style tutorial_say_dialogue:
+    properties gui.text_properties("dialogue")
+    xpos gui.dialogue_xpos
+    xsize gui.dialogue_width
+    ypos gui.dialogue_ypos
+    color "#FFE123"
+    adjust_spacing False
+
+style tutorial_choice_vbox:
+    xalign 0.5
+    ypos 405
+    yanchor 0.5
+    spacing gui.choice_spacing
+
+style tutorial_choice_button is default:
+    properties gui.button_properties("choice_button")
+    background Frame("gui/normal_choice.png", 0, 0, 0, 0)
+    hover_background Frame("gui/normal_choice.png", 0, 0, 0, 0)
+    xminimum 1000
+    yminimum 100
+
+style tutorial_choice_button_text:
+    xalign 0.5
+    yalign 0.5
+    color "#FFE123"
+    hover_color "#123335"
+    size 32
+    hover_size 36
+    bold False
+    hover_bold True
 
 
 ## Quick Menu screen ###########################################################
@@ -436,6 +539,9 @@ style main_menu_version:
 screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     style_prefix "game_menu"
+
+    # Hide all character sprites when game menu appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
 
     if main_menu:
         add gui.main_menu_background
@@ -1158,6 +1264,8 @@ style help_label_text:
 
 screen gk:
     tag menu
+    # Hide all character sprites when this screen appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
     frame:
         xalign 0.5
         yalign 0.5
@@ -1167,6 +1275,8 @@ screen gk:
 
 screen dn:
     tag menu
+    # Hide all character sprites when this screen appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
     frame:
         xalign 0.5
         yalign 0.5
@@ -1176,6 +1286,8 @@ screen dn:
 
 screen pl:
     tag menu
+    # Hide all character sprites when this screen appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
     frame:
         xalign 0.5
         yalign 0.5
@@ -1198,6 +1310,9 @@ screen confirm(message, yes_action, no_action):
     zorder 200
 
     style_prefix "confirm"
+
+    # Hide all character sprites when confirm dialog appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
 
     add "gui/overlay/confirm.png"
 

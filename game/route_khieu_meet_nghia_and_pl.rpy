@@ -131,7 +131,7 @@ label route_khieu_meet_nghia_and_pl:
     
     show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
     
-    dn "Ông/bà mới học có gì khó khăn bọn tui sẽ giúp nha"
+    dn "[player_gender] mới học có gì khó khăn bọn tui sẽ giúp nha"
     
     hide dn smileTalk
     show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
@@ -144,11 +144,16 @@ label route_khieu_meet_nghia_and_pl:
     hide pl smileTalk
     show pl smileNTalk at Transform(xpos=0.1, ypos=0.06)
     hide dn smileNTalk
-    show dn annoyedTalk at Transform(xpos=0.5, ypos=0.06)
+    show dn annoyed2Talk at Transform(xpos=0.5, ypos=0.06)
     
     dn "Tao cũng làm được cơ bản chứ bộ"
     
-    hide dn annoyedTalk
+    hide dn annoyed2Talk
+    show dn annoyed2NTalk at Transform(xpos=0.5, ypos=0.06)
+    
+    # Nghĩa và Phong nhìn nhau
+    
+    hide dn annoyed2NTalk
     hide pl smileNTalk
     
     menu:
@@ -192,7 +197,7 @@ label route_khieu_meet_nghia_and_pl:
                     hide pl annoyedNTalk
                     show dn awkwardTalk at Transform(xpos=0.5, ypos=0.06)
                     
-                    dn "(gượng gạo) À vậy hả… thế cũng được"
+                    dn "À vậy hả… thế cũng được"
                     dn "Nhưng có gì khó quá thì tui cũng không chắc được đâu."
                     
                     hide dn awkwardTalk
@@ -259,6 +264,11 @@ label route_khieu_meet_nghia_and_pl:
     dn "Thằng này với con ngựa cũng phải kẻ tám lạng người nửa cân"
     
     hide dn smileTalk
+    show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+    
+    # Nghĩa cười
+    
+    hide dn smileNTalk
     hide pl neutralNTalk
     
     menu:
@@ -275,7 +285,7 @@ label route_khieu_meet_nghia_and_pl:
             show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
             
             dn "Thôi trêu nhiều nó khóc đấy"
-            dn "Nhưng mà tui không bắt ông/bà dừng đâu."
+            dn "Nhưng mà tui không bắt [player_gender] dừng đâu."
             dn "Nhìn giải trí phết"
             
             hide dn smileTalk
@@ -286,9 +296,12 @@ label route_khieu_meet_nghia_and_pl:
             pl "Nè cậu thấy không mình nổi hết cả da gà da vịt rồi"
             
             hide pl annoyedTalk
-            hide dn smileNTalk
+            show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
             
             "(Phong Lê giả vờ vén tay áo lên xong chỉ lên cánh tay, bạn thấy da cậu ta trắng đến mức chói mắt. Sao con trai trắng được như vậy nhỉ.)"
+            
+            hide pl annoyedNTalk
+            hide dn smileNTalk
             
             menu:
                 "Vẫn đùa tiếp":
@@ -445,7 +458,14 @@ label route_khieu_meet_nghia_and_pl:
     pl "Thực ra do nó chơi đểu có người giúp mới vào được đó [player_name], chứ lúc mình đăng kí là lớp kín rồi"
     
     hide pl smileTalk
+    show pl smileNTalk at Transform(xpos=0.1, ypos=0.06)
     hide dn neutralNTalk
+    show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+    
+    # Nghĩa và Phong nhìn nhau
+    
+    hide pl smileNTalk
+    hide dn neutralTalk
     
     "(Bạn tò mò làm sao để được giúp vào lớp.)"
     
@@ -478,8 +498,8 @@ label route_khieu_meet_nghia_and_pl:
             
             dn "Không phải cửa sau đâu"
             dn "Tụi tui giỡn vậy chứ tui vẫn đường đường chính chính đăng kí lớp á"
+            hide dn annoyed2Talk
             
-            hide dn annoyedTalk
     
     show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
     
@@ -511,7 +531,7 @@ label route_khieu_meet_nghia_and_pl:
     
     show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
     
-    dn "(cười) Ừa, cảm giác đỡ bỡ ngỡ hơn"
+    dn "Ừa, cảm giác đỡ bỡ ngỡ hơn"
     
     hide dn smileTalk
     show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
@@ -525,7 +545,7 @@ label route_khieu_meet_nghia_and_pl:
     hide dn smileNTalk
     show dn awkwardTalk at Transform(xpos=0.5, ypos=0.06)
     
-    dn "(né tránh ánh nhìn) Haha có đâu ba"
+    dn "Haha có đâu ba"
     
     hide dn awkwardTalk
     show dn awkwardNTalk at Transform(xpos=0.5, ypos=0.06)
@@ -542,6 +562,11 @@ label route_khieu_meet_nghia_and_pl:
     dn "Không hề luôn"
     
     hide dn awkwardTalk
+    show dn awkwardNTalk at Transform(xpos=0.5, ypos=0.06)
+    
+    # Nghĩa và Phong nhìn nhau
+    
+    hide dn awkwardNTalk
     hide pl smileNTalk
     
     menu:
@@ -565,11 +590,11 @@ label route_khieu_meet_nghia_and_pl:
             hide pl annoyedTalk
             show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
             hide dn smileNTalk
-            show dn annoyedTalk at Transform(xpos=0.5, ypos=0.06)
+            show dn annoyed2Talk at Transform(xpos=0.5, ypos=0.06)
             
             dn "Làm như tao thèm ngồi với mày chắc"
             
-            hide dn annoyedTalk
+            hide dn annoyed2Talk
             hide pl annoyedNTalk
         
         "Nói rằng hai người có vẻ ghét nhau":
@@ -581,39 +606,14 @@ label route_khieu_meet_nghia_and_pl:
             
             hide pl annoyedTalk
             show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
-            show dn annoyedTalk at Transform(xpos=0.5, ypos=0.06)
+            show dn annoyed2Talk at Transform(xpos=0.5, ypos=0.06)
             
             dn "Câu đấy tao nói mới đúng"
             
-            hide dn annoyedTalk
+            hide dn annoyed2Talk
             hide pl annoyedNTalk
     
     "(Hai người lại tiếp tục chí chóe cãi nhau, bạn thấy hai người như hai anh em đang đánh nhau vậy. Sau đó khi cô Duyên quay xuống thì hai đứa lại chuyển sang im bặt làm bài, thay đổi nhanh đến mức bạn chớp mắt là không kịp để ý luôn.)"
     
-    "(Bạn tập trung học bài, thời gian trôi nhanh bất ngờ khi bạn đã quen với lớp và nhịp giảng của cô.)"
-    
-    show duyen talk at Transform(xpos=0.3, ypos=0.01)
-    
-    duyen "...Các con làm hết bài này nhé, tuần sau mình sẽ sửa."
-    
-    hide duyen talk
-    show duyen Ntalk at Transform(xpos=0.3, ypos=0.01)
-    
-    hide duyen Ntalk
-    
-    "(Cả lớp bắt đầu giải tán.)"
-    
-    "(Bỗng Phong Lê đứng trước mặt bạn.)"
-    
-    show pl enthusiastTalk at Transform(xpos=0.1, ypos=0.06)
-    
-    pl "[player_name] ơi!"
-    pl "Nãy mình quên xin facebook của [player_name] á"
-    pl "Có gì [player_name] kết bạn với mình nha!"
-    pl "Kết bạn cả Nghĩa với Khiếu luôn để tiện trao đổi bài tập nè"
-    
-    hide pl enthusiastTalk
-    
-    "(Bạn kết bạn với cả 3 người trên FB sau đó chào tạm biệt họ và đi về nhà.)"
-    
+    # NOTE: Ending moved to scene_end.rpy to avoid duplication
     return

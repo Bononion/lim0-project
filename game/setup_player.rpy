@@ -20,7 +20,7 @@ label setup_player:
   $ thanked_khieu = False
   $ phong_name = "Phong"  # Can change to "Phong Lê"
   # Normalize to canonical enums used by seat UI + route dispatch.
-  # Valid values: "seat1" (PL middle), "seat2" (DN right), "seat3" (GK left), "standing"
+  # Valid values: "seat1" (PL route), "seat2" (GK route), "seat3" (DN route), "standing"
   $ seating_choice = ""
   $ accepted_food = False
   

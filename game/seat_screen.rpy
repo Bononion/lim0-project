@@ -1,21 +1,16 @@
 label seat_screen:
     call screen seat_choice
     $ seating_choice = _return
-    if seating_choice == "seat1":
-        $ fp_pl += 1
-        call route_phong
-    elif seating_choice == "seat2":
-        $ fp_gk += 1
-        call route_khieu
-    elif seating_choice == "seat3":
-        $ fp_dn += 1
-        call route_nghia
+    # Route dispatch and FP assignment happens in script.rpy after this returns
     return
 
 screen seat_choice():
 
     modal True
     tag menu
+
+    # Hide all character sprites when this screen appears
+    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
 
     default hovered = None          # current hover (temporary)
     default selected = "seat1"      # last preview to keep showing

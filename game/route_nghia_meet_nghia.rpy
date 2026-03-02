@@ -1,24 +1,23 @@
 # Meeting Nghia and a choice to ask him for help or not
 
 label route_nghia_meet_nghia:
-    show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
+    show dn smileTalk at Transform(xpos=0.3, ypos=0.06) with dissolve
     
     "(Bạn tiến tới chỗ ngồi gần cửa ra vào, bạn hỏi rằng bạn có thể ngồi ở chỗ ngoài cùng không.)"
     
     "(Cậu bạn đang ngồi đó mỉm cười lịch sự và xích vào trong để bạn ngồi)"
     
-    dn "(mỉm cười nhẹ) \"À không sao nha ông/bà cứ thoải mái đi\""
+    dn "À không sao nha [player_gender] cứ thoải mái đi"
     
     hide dn smileTalk
     show dn smileNTalk at Transform(xpos=0.3, ypos=0.06)
     
-    dn "\"Hôm nay là ngày đầu ông/bà đi học đúng không, tại tui chưa thấy ông/bà bao giờ\""
+    dn "Hôm nay là ngày đầu [player_gender] đi học đúng không, tại tui chưa thấy [player_gender] bao giờ"
     
     hide dn smileNTalk
     
-    # CHOICE: Introduction style (lines 105-109)
     menu:
-        "Ừ, mình là MC":
+        "Ừ, mình là [player_name]":
             show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
             $ trait_nc += 1
             dn "Ừm, tui là Đại Nghĩa, rất vui được làm quen nha."
@@ -26,15 +25,15 @@ label route_nghia_meet_nghia:
             hide dn smileTalk
             show dn smileNTalk at Transform(xpos=0.3, ypos=0.06)
         
-        "Ừm đúng rồi, mình là MC, tên cậu là gì vậy á":
+        "Ừm đúng rồi, mình là [player_name], tên cậu là gì vậy á":
             show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
             $ trait_ss += 1
-            dn "Chào MC nhé, tui là Nghĩa. Có gì cần hỏi thì hỏi tui nha, không có gì phải ngại đâu."
+            dn "Chào [player_name] nhé, tui là Nghĩa. Có gì cần hỏi thì hỏi tui nha, không có gì phải ngại đâu."
             
             hide dn smileTalk
             show dn smileNTalk at Transform(xpos=0.3, ypos=0.06)
         
-        "Đúng rùi á, mình được bạn mình giới thiệu cô Duyên mà mãi mới lấy được slot học tại nhiều người đăng kí quá kkk. Mình là MC á, còn ông tên gì?":
+        "Đúng rùi á, mình được bạn mình giới thiệu cô Duyên mà mãi mới lấy được slot học tại nhiều người đăng kí quá kkk. Mình là [player_name] á, còn ông tên gì?":
             show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
             $ trait_cm += 1
             dn "Tên tui là Nghĩa. Hồi đầu tui muốn đăng ký lớp cũng cực lắm, may mà có bạn học PTNK nhờ cô nên mới có suất đó."
@@ -109,17 +108,16 @@ label route_nghia_meet_nghia:
     hide dn smileTalk
     show dn smileNTalk at Transform(xpos=0.3, ypos=0.06)
     
-    dn "Có gì thì ông/bà hỏi thằng Phong này nè, nó giỏi toán lắm."
+    dn "Có gì thì [player_gender] hỏi thằng Phong này nè, nó giỏi toán lắm."
     
     hide dn smileNTalk
     
-    # CHOICE: Who to ask for help (line 122)
     menu:
         "Nói rằng chỉ muốn hỏi Nghĩa thôi":
             $ fp_dn -= 1
             show dn awkwardTalk at Transform(xpos=0.3, ypos=0.06)
             
-            dn "(gượng gạo): \"À vậy hả… thế cũng được\""
+            dn "À vậy hả… thế cũng được"
             
             hide dn awkwardTalk
             show dn awkwardNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -132,7 +130,7 @@ label route_nghia_meet_nghia:
             $ fp_dn += 1
             show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
             
-            dn "(cười): \"Thế là oke rồi nhé\""
+            dn "Thế là oke rồi nhé"
             
             hide dn smileTalk
             show dn smileNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -145,7 +143,7 @@ label route_nghia_meet_nghia:
     
     show dn neutralTalk at Transform(xpos=0.3, ypos=0.06)
     
-    dn "(suy nghĩ): \"Hmmm…\""
+    dn "Hmmm…"
     
     hide dn neutralTalk
     show dn neutralNTalk at Transform(xpos=0.3, ypos=0.06)

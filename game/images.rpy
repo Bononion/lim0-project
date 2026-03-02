@@ -16,6 +16,7 @@ image bg streets = im.Scale("images/bg/Streets.png", 1920, 1080)
 image gk normal = "images/GK/gia_khieu_moinguday.png"
 image gk sleeping = "images/GK/gia_khieu_ngu.png"
 image gk back = Transform("images/GK/gk_back.png", zoom=0.55)
+image gk smile = "images/GK/gk_smilling_notalk_close.png"
 
 image gk neuNTalk = Transform(
     Animation(
@@ -34,61 +35,65 @@ image gk neuTalk = Transform(
     zoom = 0.5
 )
 
+# gk_sleeping_notalk.png is a single sprite, no animation possible
+# Using as a still image instead
 image gk sleepingNTalk = Transform(
-    Animation(
-        "images/GK/gk_sleeping_notalk.png", 0.1,
-        loop = True
-    ),
+    "images/GK/gk_sleeping_notalk.png",
     zoom = 0.5
 )
 
+# gk_sleeping_drooling.png is a single sprite, no animation possible
+# Using as a still image instead
 image gk sleepingDrooling = Transform(
-    Animation(
-        "images/GK/gk_sleeping_drooling.png", 0.1,
-        loop = True
-    ),
+    "images/GK/gk_sleeping_drooling.png",
     zoom = 0.5
 )
 
+# gk_wakingup_talk_open.png does not exist, using neutral as fallback
 image gk wakingupTalk = Transform(
     Animation(
-        "images/GK/gk_wakingup_talk_open.png", 4,
+        "images/GK/gk_neutral_talk_open.png", 4,
+        "images/GK/gk_neutral_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
 )
 
+# gk_wakingup_notalk_open.png does not exist, using neutral as fallback
 image gk wakingupNTalk = Transform(
     Animation(
-        "images/GK/gk_wakingup_notalk_open.png", 4,
+        "images/GK/gk_neutral_notalk_open.png", 4,
+        "images/GK/gk_neutral_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
 )
 
+# gk_wakingup_yawn.png does not exist, using neutral as fallback
 image gk wakingupYawn = Transform(
     Animation(
-        "images/GK/gk_wakingup_yawn.png", 0.1,
+        "images/GK/gk_neutral_notalk_open.png", 4,
+        "images/GK/gk_neutral_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
 )
 
+# gk_smilling_talk_open.png and gk_smilling_talk_close.png do not exist
+# Using neutral as fallback for smileTalk
 image gk smileTalk = Transform(
     Animation(
-        "images/GK/gk_smilling_talk_open.png", 4,
-        "images/GK/gk_smilling_talk_close.png", 0.1,
+        "images/GK/gk_neutral_talk_open.png", 4,
+        "images/GK/gk_neutral_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
 )
 
+# gk_smilling_notalk_close.png is a single sprite, no animation possible
+# Using as a still image instead
 image gk smileNTalk = Transform(
-    Animation(
-        "images/GK/gk_smilling_notalk_open.png", 4,
-        "images/GK/gk_smilling_notalk_close.png", 0.1,
-        loop = True
-    ),
+    "images/GK/gk_smilling_notalk_close.png",
     zoom = 0.5
 )
 
@@ -113,7 +118,7 @@ image gk annoyedNTalk = Transform(
 image gk saddenTalk = Transform(
     Animation(
         "images/GK/gk_sadden_talk_close.png", 4,
-        "images/GK/gk_sadden_talk_copen.png", 0.1,
+        "images/GK/gk_sadden_talk_open.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -155,11 +160,10 @@ image gk cringeandconcernedTalk = Transform(
     zoom = 0.5
 )
 
+# gk_flustered_talk.png is a single sprite, no animation possible
+# Using as a still image instead
 image gk flusteredTalk = Transform(
-    Animation(
-        "images/GK/gk_flustered_talk.png", 4,
-        loop = True
-    ),
+    "images/GK/gk_flustered_talk.png",
     zoom = 0.5
 )
 
@@ -177,10 +181,22 @@ image gk laugh = Transform(
     zoom = 0.5
 )
 
+# gk_surprised_talk_open.png and gk_surprised_talk_close.png do not exist
+# Commenting out until files are available
+# image gk surprisedTalk = Transform(
+#     Animation(
+#         "images/GK/gk_surprised_talk_open.png", 4,
+#         "images/GK/gk_surprised_talk_close.png", 0.1,
+#         loop = True
+#     ),
+#     zoom = 0.5
+# )
+
+# Using neutral as fallback for surprised
 image gk surprisedTalk = Transform(
     Animation(
-        "images/GK/gk_surprised_talk_open.png", 4,
-        "images/GK/gk_surprised_talk_close.png", 0.1,
+        "images/GK/gk_neutral_talk_open.png", 4,
+        "images/GK/gk_neutral_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -198,6 +214,7 @@ image gk surprisedNTalk = Transform(
 #Dai Nghia
 image dn smile = "images/DN/dn_smile_notalk_close.png"
 image dn normal = "images/DN/dn_neutral_notalk_close.png"
+image dn smug = "images/DN/dn_smug_talk_close.png"
 
 image dn caughtredhandedTalk = Transform(
     Animation(
@@ -361,19 +378,18 @@ image dn smileNTalk = Transform(
     zoom = 0.5
 )
 
+# dn_sorry_talk_open.png is a single sprite, no animation possible
+# Using as a still image instead
 image dn sorryTalk = Transform(
-    Animation(
-        "images/DN/dn_sorry_talk_open.png", 3,
-        "images/DN/dn_sorry_talk_close.png", 0.1,
-        loop = True
-    ),
+    "images/DN/dn_sorry_talk_open.png",
     zoom = 0.5
 )
 
+# dn_sorry_notalk_open.png does not exist, using neutral as fallback
 image dn sorryNTalk = Transform(
     Animation(
-        "images/DN/dn_sorry_notalk_open.png", 3,
-        "images/DN/dn_sorry_notalk_close.png", 0.1,
+        "images/DN/dn_neutral_notalk_open.png", 3,
+        "images/DN/dn_neutral_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -397,10 +413,11 @@ image dn eatingTalk = Transform(
     zoom = 0.5
 )
 
+# dn_annoyed_talk files do not exist - using annoyed1 as fallback
 image dn annoyedTalk = Transform(
     Animation(
-        "images/DN/dn_annoyed_talk_open.png", 3,
-        "images/DN/dn_annoyed_talk_close.png", 0.1,
+        "images/DN/dn_annoyed1_talk_open.png", 3,
+        "images/DN/dn_annoyed1_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -408,17 +425,18 @@ image dn annoyedTalk = Transform(
 
 image dn annoyedNTalk = Transform(
     Animation(
-        "images/DN/dn_annoyed_notalk_open.png", 3,
-        "images/DN/dn_annoyed_notalk_close.png", 0.1,
+        "images/DN/dn_annoyed1_notalk_open.png", 3,
+        "images/DN/dn_annoyed1_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
 )
 
+# dn_surprise_talk files do not exist, using neutral as fallback
 image dn surprisedTalk = Transform(
     Animation(
-        "images/DN/dn_surprise_talk_open.png", 3,
-        "images/DN/dn_surprise_talk_close.png", 0.1,
+        "images/DN/dn_neutral_talk_open.png", 3,
+        "images/DN/dn_neutral_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -426,8 +444,8 @@ image dn surprisedTalk = Transform(
 
 image dn surprisedNTalk = Transform(
     Animation(
-        "images/DN/dn_surprise_notalk_open.png", 3,
-        "images/DN/dn_surprise_notalk_close.png", 0.1,
+        "images/DN/dn_neutral_notalk_open.png", 3,
+        "images/DN/dn_neutral_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -439,6 +457,9 @@ image pl normal = "images/PL/pl_neutral_notalk_close.png"
 image pl smile = "images/PL/pl_smile_notalk_close.png"
 image pl mad = "images/PL/pl_angry_notalk_close.png"
 image pl shit = "images/PL/pl_annoyed_notalk_close.png"
+image pl sad = "images/PL/pl_sad_notalk_close.png"
+image pl scared = "images/PL/pl_scared_notalk_close.png"
+image pl surprised = "images/PL/pl_surprised_notalk_close.png"
 
 image pl angryTalk = Transform(
     Animation(
@@ -530,11 +551,10 @@ image pl glassfocusedNTalk = Transform(
     zoom = 0.5
 )
 
+# pl_glasslaugh_talk_close.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl glasslaughTalk = Transform(
-    Animation(
-        "images/PL/pl_glasslaugh_talk_close.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_glasslaugh_talk_close.png",
     zoom = 0.5
 )
 
@@ -556,19 +576,17 @@ image pl glassneutralNTalk = Transform(
     zoom = 0.5
 )
 
+# pl_glassragebaited_talk_open.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl glassragebaitedTalk = Transform(
-    Animation(
-        "images/PL/pl_glassragebaited_talk_open.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_glassragebaited_talk_open.png",
     zoom = 0.5
 )
 
+# pl_glassragebaited_notalk_open.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl glassragebaitedNTalk = Transform(
-    Animation(
-        "images/PL/pl_glassragebaited_notalk_open.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_glassragebaited_notalk_open.png",
     zoom = 0.5
 )
 
@@ -590,41 +608,39 @@ image pl glasssmileNTalk = Transform(
     zoom = 0.5
 )
 
+# pl_glassthinking_talk_open.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl glasthinkingTalk = Transform(
-    Animation(
-        "images/PL/pl_glassthinking_talk_open.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_glassthinking_talk_open.png",
     zoom = 0.5
 )
 
+# pl_glassthinking_notalk_open.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl glasthinkingNTalk = Transform(
-    Animation(
-        "images/PL/pl_glassthinking_notalk_open.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_glassthinking_notalk_open.png",
     zoom = 0.5
 )
 
+# pl_scared_talk_close.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl scaredTalk = Transform(
-    Animation(
-        "images/PL/pl_scared_talk_close.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_scared_talk_close.png",
     zoom = 0.5
 )
 
+# pl_scared_notalk_close.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl scaredNTalk = Transform(
-    Animation(
-        "images/PL/pl_scared_notalk_close.png", 5,
-        loop = True
-    ),
+    "images/PL/pl_scared_notalk_close.png",
     zoom = 0.5
 )
 
+# pl_begging_notalk_open.png does not exist, using neutral as fallback
 image pl beggingNTalk = Transform(
     Animation(
-        "images/PL/pl_begging_notalk_open.png", 5,
+        "images/PL/pl_neutral_notalk_open.png", 5,
+        "images/PL/pl_neutral_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -666,19 +682,21 @@ image pl smileNTalk = Transform(
     zoom = 0.5
 )
 
+# pl_confused_talk_open.png and pl_confused_talk_close.png do not exist, using neutral as fallback
 image pl confusedTalk = Transform(
     Animation(
-        "images/PL/pl_confused_talk_open.png", 5,
-        "images/PL/pl_confused_talk_close.png", 0.1,
+        "images/PL/pl_neutral_talk_open.png", 5,
+        "images/PL/pl_neutral_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
 )
 
+# pl_confused_notalk_open.png and pl_confused_notalk_close.png do not exist, using neutral as fallback
 image pl confusedNTalk = Transform(
     Animation(
-        "images/PL/pl_confused_notalk_open.png", 5,
-        "images/PL/pl_confused_notalk_close.png", 0.1,
+        "images/PL/pl_neutral_notalk_open.png", 5,
+        "images/PL/pl_neutral_notalk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -756,11 +774,10 @@ image pl ragebaitedNTalk = Transform(
     zoom = 0.5
 )
 
+# pl_laugh_talk_close.png is a single sprite, no animation possible
+# Using as a still image instead
 image pl laughTalk = Transform(
-    Animation(
-        "images/PL/pl_laugh_talk_close.png", 0.1,
-        loop = True
-    ),
+    "images/PL/pl_laugh_talk_close.png",
     zoom = 0.5
 )
 

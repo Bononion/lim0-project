@@ -1,12 +1,11 @@
 label gia_khieu_sleeping_scene_2:
-  # All routes converge here
   show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
   
   "KHỌTTTTTTTTTTTTTTTTTTTTTTTTTT"
 
-  "(Gia Khiếu bất ngờ phát ra tiếng ngáy 'khọt' rõ to. Bạn và hai người kia cùng quay sang.)"
+  "Gia Khiếu bất ngờ phát ra tiếng ngáy 'khọt' rõ to. Bạn và hai người kia cùng quay sang."
   
-  "(Bạn giật mình thấy quyển tập của mình hơi ướt ướt)"
+  "Bạn giật mình thấy quyển tập của mình hơi ướt ướt."
   
   show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
   pl "Trời ơi, nó ngủ chảy ke lên tập tao bạn mới kìa."
@@ -19,7 +18,7 @@ label gia_khieu_sleeping_scene_2:
   hide pl annoyedNTalk
   show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
   
-  pl "Thay mặt nó xin lỗi MC nhiều nha, để tí mình bắt nó đền tập mới cho MC"
+  pl "Thay mặt nó xin lỗi [player_name] nhiều nha, để tí mình bắt nó đền tập mới cho [player_name]"
   
   hide pl annoyedTalk
   show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
@@ -30,7 +29,7 @@ label gia_khieu_sleeping_scene_2:
   hide dn smileTalk
   show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
   
-  dn "(Bạn bất ngờ khi thấy cậu ta ngủ gật trong lớp)"
+  # Bạn bất ngờ khi thấy cậu ta ngủ gật trong lớp
   
   hide dn smileNTalk
   show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
@@ -45,7 +44,7 @@ label gia_khieu_sleeping_scene_2:
   hide dn smileNTalk
   show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
   
-  dn "(Nhìn thấy bạn có vẻ nhìn Gia Khiếu với ánh mắt hơi nghi ngờ, Nghĩa bèn nói tiếp)"
+  # Nhìn thấy bạn có vẻ nhìn Gia Khiếu với ánh mắt hơi nghi ngờ, Nghĩa bèn nói tiếp
   
   hide dn smileTalk
   show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
@@ -67,13 +66,13 @@ label gia_khieu_sleeping_scene_2:
   hide pl annoyedNTalk
   show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
   
-  pl "(khều mạnh Khiếu): Ê Khiếu, dậy coi!"
+  pl "Ê Khiếu, dậy coi!"
   
   hide pl annoyedTalk
   show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
   show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
   
-  gk "(mắt lim dim, lí nhí): \"Hả...\""
+  gk "Hả..."
   
   hide gk sleepingNTalk
   hide pl annoyedNTalk
@@ -87,6 +86,7 @@ label gia_khieu_sleeping_scene_2:
   pl "Dậy mà xin lỗi đi!"
   
   hide pl annoyedNTalk
+  hide gk sleepingNTalk
 
   menu:
       "Nói không sao và lấy khăn giấy ra đưa cho Gia Khiếu":
@@ -96,18 +96,18 @@ label gia_khieu_sleeping_scene_2:
           
           show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
           
-          pl "Xin lỗi MC nhiều nha, để mình nói nó không lần sau bị vậy tiếp nữa"
+          pl "Xin lỗi [player_name] nhiều nha, để mình nói nó không lần sau bị vậy tiếp nữa"
           
           hide pl annoyedTalk
           show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
           show gk wakingupTalk at Transform(xpos=0.3, ypos=0.06)
           
-          gk "(Gia Khiếu cũng lờ mờ mở mắt nhìn bạn, tay cầm giấy ăn nhưng không dùng để lau mà chỉ để đấy)"
+          # Gia Khiếu cũng lờ mờ mở mắt nhìn bạn, tay cầm giấy ăn nhưng không dùng để lau mà chỉ để đấy
           
           hide gk wakingupTalk
           show gk wakingupNTalk at Transform(xpos=0.3, ypos=0.06)
           
-          gk "(Khi thấy đã lỡ làm ướt tập bạn, cậu ấy có vẻ tỉnh hơn một chút)"
+          # Khi thấy đã lỡ làm ướt tập bạn, cậu ấy có vẻ tỉnh hơn một chút
           
           hide gk wakingupNTalk
           show gk wakingupTalk at Transform(xpos=0.3, ypos=0.06)
@@ -139,7 +139,7 @@ label gia_khieu_sleeping_scene_2:
           show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
           show gk sleepingTalk at Transform(xpos=0.3, ypos=0.06)
           
-          gk "(vẫn nằm trên bàn) \"...rồi\""
+          gk "...rồi"
           
           hide gk sleepingTalk
           show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -204,6 +204,7 @@ label gia_khieu_sleeping_scene_2:
           pl "0_0 (bro emotes)"
           
           hide pl annoyedTalk
+          hide gk sleepingNTalk
           
           menu:
               "Cảm thán Gia Khiếu ngủ nhưng vẫn làm đủ bài":
@@ -229,7 +230,7 @@ label gia_khieu_sleeping_scene_2:
                   
                   show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
                   
-                  dn "(Nghĩa nói xong liền quay qua phía Gia Khiếu)"
+                  # Nghĩa nói xong liền quay qua phía Gia Khiếu
                   
                   hide dn neutralTalk
                   show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
@@ -239,7 +240,7 @@ label gia_khieu_sleeping_scene_2:
                   hide dn neutralNTalk
                   show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
                   
-                  gk "(vẫn nằm trên bàn): \"đanggg..ngủ..mà..\""
+                  gk "đanggg..ngủ..mà.."
                   
                   hide gk sleepingNTalk
               
@@ -273,7 +274,7 @@ label gia_khieu_sleeping_scene_2:
                   show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
                   show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
                   
-                  gk "(vẫn nằm trên bàn): \"đanggg..ngủ..mà..\""
+                  gk "đanggg..ngủ..mà.."
                   
                   hide dn neutralNTalk
                   hide gk sleepingNTalk
@@ -295,7 +296,7 @@ label gia_khieu_sleeping_scene_2:
           $ fp_gk -= 2
           show gk annoyedTalk at Transform(xpos=0.3, ypos=0.06)
           
-          gk "(Gia Khiếu không gỡ bịt mắt ra, nhưng bạn cảm thấy giọng cậu ta hơi khó chịu)"
+          # Gia Khiếu không gỡ bịt mắt ra, nhưng bạn cảm thấy giọng cậu ta hơi khó chịu
           
           hide gk annoyedTalk
           show gk annoyedNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -336,7 +337,7 @@ label gia_khieu_sleeping_scene_2:
           hide gk annoyedNTalk
           show gk sleepingTalk at Transform(xpos=0.3, ypos=0.06)
           
-          gk "(vẫn nằm trên bàn, giọng ngái ngủ): \"Cả làm xong bài rồi\""
+          gk "Cả làm xong bài rồi"
           
           hide gk sleepingTalk
           hide pl annoyedNTalk
@@ -350,7 +351,7 @@ label gia_khieu_sleeping_scene_2:
           hide dn neutralTalk
           show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
           
-          dn "(Nói xong Nghĩa quay qua chỗ Gia Khiếu)"
+          # Nói xong Nghĩa quay qua chỗ Gia Khiếu
           
           hide dn neutralNTalk
           show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)

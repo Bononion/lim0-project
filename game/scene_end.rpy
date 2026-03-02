@@ -6,23 +6,30 @@ label scene_end:
     "(Cô Duyên đi từng bàn kiểm tra bài làm của học sinh.)"
     
     show duyen talk at Transform(xpos=0.3, ypos=0.01)
-    duyen "Các con làm tốt lắm. Tuần sau chúng ta sẽ học tiếp chương mới."
+    duyen "...Các con làm hết bài này nhé, tuần sau mình sẽ sửa."
     
     hide duyen talk
-    show duyen Ntalk at Transform(xpos=0.3, ypos=0.01)
     
-    duyen "Nhớ ôn bài nhé các con."
+    "(Cả lớp bắt đầu giải tán.)"
     
-    hide duyen Ntalk
+    "(Bỗng Phong Lê đứng trước mặt bạn.)"
     
-    "Đến giờ tan học."
+    show pl enthusiastTalk at Transform(xpos=0.3, ypos=0.06)
     
+    pl "[player_name] ơi!"
+    pl "Nãy mình quên xin facebook của [player_name] á"
+    pl "Có gì [player_name] kết bạn với mình nha!"
+    pl "Kết bạn cả Nghĩa với Khiếu luôn để tiện trao đổi bài tập nè"
+    
+    hide pl enthusiastTalk
+    
+    "(Bạn kết bạn với cả 3 người trên FB sau đó chào tạm biệt họ và đi về nhà.)"
     
     if seating_choice != "standing":
         show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
         show pl neutralTalk at Transform(xpos=0.1, ypos=0.06)
 
-        dn "Hẹn gặp lại MC nha!"
+        dn "Hẹn gặp lại [player_name] nha!"
 
         hide dn smileTalk
         show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)

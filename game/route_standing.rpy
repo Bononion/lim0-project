@@ -44,7 +44,7 @@ label route_standing:
     
     hide pl confusedTalk
     show pl confusedNTalk at Transform(xpos=0.1, ypos=0.06)
-    show dn angryTalk at Transform(xpos=0.5, ypos=0.06)
+    show dn angryTalk at Transform(xpos=0.5, ypos=0.06) with dissolve
     
     unknown "Do mày chứ ai, ai kêu trông mày ăn vụng nhồm nhoàm kinh dị quá. Chắc bạn tưởng mày bị vấn đề đầu óc"
     
@@ -136,11 +136,11 @@ label route_standing:
     
     "(Bài toán này làm bạn cảm thấy mình là một người ngờ nghệch.)"
     
-    show dn neutralTalk at Transform(xpos=0.3, ypos=0.06)
+    show dn neutralTalk at Transform(xpos=0.3, ypos=0.06) with dissolve
     
     "(Dường như nhìn thấy bạn loay hoay với bài, cậu bạn 'không thối' liền quay sang.)"
     
-    unknown "Ông/bà không làm được bài này à?"
+    unknown "[player_gender] không làm được bài này à?"
     
     hide dn neutralTalk
     
@@ -153,14 +153,14 @@ label route_standing:
             $ trait_ss += 1
             mc "Ừm, mình chưa gặp dạng này bao giờ"
             
-        "Ừa, dạng này lạ quá, mình chưa bao giờ làm, mình nghĩ nãy giờ không ra":
+        "Ừa, dạng này lạ quá, mình chưa bao giờ làm":
             $ trait_cm += 1
-            mc "Ừa, dạng này lạ quá, mình chưa bao giờ làm, mình nghĩ nãy giờ không ra"
+            mc "Ừa, dạng này lạ quá, mình chưa bao giờ làm"
     
     hide dn neutralNTalk
     show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
     
-    unknown "Nếu ông/bà muốn tui có thể chỉ cách làm cho"
+    unknown "Nếu [player_gender] muốn tui có thể chỉ cách làm cho"
     
     hide dn smileTalk
     show dn neutralNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -169,6 +169,7 @@ label route_standing:
 
     hide dn neutralNTalk
     
+label standing_help_choice:
     menu:
         "Đồng ý và cảm ơn":
             jump standing_accept_help
@@ -201,14 +202,14 @@ label standing_accept_help:
     hide dn smileTalk
     show dn sorryTalk at Transform(xpos=0.3, ypos=0.06)
     
-    unknown "Quên mất, tên tui là Đại Nghĩa. Tên ông/bà là gì nhỉ"
+    unknown "Quên mất, tên tui là Đại Nghĩa. Tên [player_gender] là gì nhỉ"
     
     hide dn sorryTalk
     show dn neutralTalk at Transform(xpos=0.3, ypos=0.06)
     
-    "(Bạn giới thiệu tên mình là MC)"
+    "(Bạn giới thiệu tên mình là [player_name])"
     
-    dn "Sao ông/bà lại đứng học vậy, do bọn tui dọa à"
+    dn "Sao [player_gender] lại đứng học vậy, do bọn tui dọa à"
     
     hide dn neutralTalk
     show dn neutralNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -218,7 +219,7 @@ label standing_accept_help:
     hide dn neutralNTalk
     show dn smileTalk at Transform(xpos=0.3, ypos=0.06)
     
-    dn "Thôi lần sau học ông/bà cứ ngồi xuống đi, tại đứng mỏi chân…"
+    dn "Thôi lần sau học [player_gender] cứ ngồi xuống đi, tại đứng mỏi chân…"
     
     hide dn smileTalk
     show dn awkwardTalk at Transform(xpos=0.3, ypos=0.06)
@@ -230,7 +231,7 @@ label standing_accept_help:
     hide dn awkwardTalk
     show pl enthusiastTalk at Transform(xpos=0.3, ypos=0.06)
     
-    unknown "Hellu bạn MC nha! Mình là Phong Lê, và mình cũng có cùng thắc mắc với thằng này á!"
+    unknown "Hellu bạn [player_name] nha! Mình là Phong Lê, và mình cũng có cùng thắc mắc với thằng này á!"
     
     hide pl enthusiastTalk
     show pl enthusiastNTalk at Transform(xpos=0.3, ypos=0.06)
@@ -288,7 +289,7 @@ label standing_accept_help:
     hide pl smileNTalk
     show pl laughTalk at Transform(xpos=0.3, ypos=0.06)
     
-    pl "MC nói rồi đó nha, lần sau mình sẽ giữ chỗ cho cậu"
+    pl "[player_name] nói rồi đó nha, lần sau mình sẽ giữ chỗ cho cậu"
     pl "Cả để nói Gia Khiếu bớt chắn đường vào nữa"
     pl "Khiếu!"
     pl "Bữa sau bạn mới ngồi với mình, mày phải đàng hoàng lên đấy"
@@ -338,7 +339,7 @@ label standing_silent_gk:
     
     "(Phong Lê nhìn thấy sự gượng gạo giữa bạn và Gia Khiếu)"
     
-    pl "MC có vẻ ít nói phết nhỉ…"
+    pl "[player_name] có vẻ ít nói phết nhỉ…"
     
     $ fp_pl -= 2
     
@@ -350,7 +351,7 @@ label standing_after_gk_intro:
     show pl neutralTalk at Transform(xpos=0.1, ypos=0.06)
     show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
     
-    pl "Thằng bạn mình hay ngủ lắm, trong lớp không làm phiền đến MC đâu"
+    pl "Thằng bạn mình hay ngủ lắm, trong lớp không làm phiền đến [player_name] đâu"
     
     hide pl neutralTalk
     show pl neutralNTalk at Transform(xpos=0.1, ypos=0.06)
@@ -366,7 +367,7 @@ label standing_after_gk_intro:
     hide dn neutralNTalk
     show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
     
-    dn "Tui làm bài tiếp đây, có gì khó ông/bà cứ nói tui nhé."
+    dn "Tui làm bài tiếp đây, có gì khó [player_gender] cứ nói tui nhé."
     dn "Tui không giải được thì tui đưa Phong giải"
     
     hide dn neutralTalk
@@ -433,14 +434,14 @@ label standing_after_gk_intro:
             show pl neutralTalk at Transform(xpos=0.1, ypos=0.06)
             show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
             
-            pl "Lúc nói chuyện rồi MC sẽ thấy Gia Khiếu không phải người như thế đâu"
+            pl "Lúc nói chuyện rồi [player_name] sẽ thấy Gia Khiếu không phải người như thế đâu"
             
             hide pl neutralTalk
             hide dn neutralNTalk
             show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
             show pl neutralNTalk at Transform(xpos=0.1, ypos=0.06)
             
-            dn "Nếu không thích ông/bà có thể ngồi cạnh tui hoặc giữa tui với Phong cũng được."
+            dn "Nếu không thích [player_gender] có thể ngồi cạnh tui hoặc giữa tui với Phong cũng được."
             
             hide dn neutralTalk
             hide pl neutralNTalk
@@ -461,27 +462,7 @@ label standing_after_gk_intro:
     
     "(Tuy vậy chân bạn khá mỏi khi phải đứng 3 tiếng liền, cả tay bạn cũng phải cầm giấy viết nữa. Bạn quyết định hôm sau sẽ ngồi chứ không đứng nữa.)"
     
-    show duyen talk at Transform(xpos=0.3, ypos=0.01)
-    
-    duyen "...Các con làm hết bài này nhé, tuần sau mình sẽ sửa."
-    
-    hide duyen talk
-    
-    "(Cả lớp bắt đầu giải tán)"
-    
-    "(Bỗng Phong Lê đứng trước mặt bạn)"
-    
-    show pl enthusiastTalk at Transform(xpos=0.3, ypos=0.06)
-    
-    pl "MC ơi!"
-    pl "Nãy mình quên xin facebok của MC á"
-    pl "Có gì MC kết bạn với mình nha!"
-    pl "Kết bạn cả Nghĩa với Khiếu luôn để tiện trao đổi bài tập nè"
-    
-    hide pl enthusiastTalk
-    
-    "(Bạn kết bạn với cả 3 người trên FB sau đó chào tạm biệt họ và đi về nhà.)"
-    
+    # NOTE: Ending moved to scene_end.rpy to avoid duplication
     return
 
 label standing_refuse_help:
@@ -509,4 +490,5 @@ label standing_refuse_help:
     centered "{color=#FFD700}(Bạn nhận được thành tựu){/color}"
     centered "{size=+10}{color=#FFD700}MISS OUT{/color}{/size}"
 
-    return
+    # Return to the choice that led to this ending
+    jump standing_help_choice

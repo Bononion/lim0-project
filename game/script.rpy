@@ -111,6 +111,14 @@ label route_khieu:
             call route_khieu_option2
     
     call route_khieu_meet_nghia_and_pl
-    
+    call friendship_history
+
+    # Normalize seating_choice enums: "seat1" (PL), "seat2" (GK), "seat3" (DN), "standing"
+    if seating_choice == "seat1":
+        call gia_khieu_sleeping_scene_2
+    elif seating_choice == "seat2":
+        call gia_khieu_sleeping_scene
+    else:
+        call gia_khieu_sleeping_scene_1
     return
 

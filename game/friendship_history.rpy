@@ -20,7 +20,7 @@ label friendship_history:
     show pl neutralNTalk at Transform(xpos=0.1, ypos=0.06)
 
     # This friendship-history block only makes sense for the sitting routes.
-    # seat1 = PL route, seat2 = DN route, seat3 = GK route.
+    # seat1 = PL route, seat2 = GK route, seat3 = DN route.
     if seating_choice == "seat1":
         show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
 
@@ -139,6 +139,98 @@ label friendship_history:
 
         hide dn smileTalk
         show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+        show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
+
+        pl "Thôi thà tự canh còn hơn mắc nợ thằng kia, có phải lúc đó mày mua chuộc nó bằng bánh mì đúng không?"
+
+        hide pl annoyedTalk
+        show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
+        show dn awkwardTalk at Transform(xpos=0.5, ypos=0.06)
+
+        dn "Haha đâu có đâu."
+
+        hide dn awkwardTalk
+        show dn awkwardNTalk at Transform(xpos=0.5, ypos=0.06)
+        show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
+
+        pl "Xì tao biết thừa."
+
+        hide pl annoyedTalk
+        show pl annoyedNTalk at Transform(xpos=0.1, ypos=0.06)
+        hide dn awkwardNTalk
+
+        mc "Hai cậu thân nhau phết nhỉ."
+
+        show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+        show pl neutralTalk at Transform(xpos=0.1, ypos=0.06)
+
+        dn "Thân bại danh liệt thì có."
+        pl "Thân bại danh liệt thì có."
+
+        hide dn neutralTalk
+        hide pl neutralTalk
+
+    elif seating_choice == "seat3":
+        # seat3 = DN route - same as seat1 with menu choices
+        show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+
+        dn "Tại mày leo tao chứ bộ, tao định học lớp này trước mày mà."
+
+        hide dn smileTalk
+        show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+        show pl neutralTalk at Transform(xpos=0.1, ypos=0.06)
+
+        pl "Haha nhưng mà tao vô lớp trước mà, không phải đợi hậu thuẫn bên trong xin slot giống mày."
+
+        hide pl neutralTalk
+        show pl neutralNTalk at Transform(xpos=0.1, ypos=0.06)
+
+        mc "Hậu thuẫn á, lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này."
+
+        hide pl neutralNTalk
+        show dn neutralTalk at Transform(xpos=0.5, ypos=0.06)
+
+        dn "À bọn mình nói đùa đấy, thực ra là nhờ bạn mình xem có ai chuẩn bị nghỉ để nhảy vô thui."
+
+        hide dn neutralTalk
+        show dn neutralNTalk at Transform(xpos=0.5, ypos=0.06)
+
+        menu:
+            "Không ngờ người như cậu còn phải đi cửa sau nhỉ":
+                $ fp_dn -= 1
+                show dn at shake_effect
+                show dn awkwardTalk at Transform(xpos=0.5, ypos=0.06)
+
+                dn "Nói thế thì...có hơi quá, chỉ là mình hay đi dò hỏi thôi."
+
+                hide dn awkwardTalk
+                show dn awkwardNTalk at Transform(xpos=0.5, ypos=0.06)
+
+                mc "Xin lỗi nha hình như mình giỡn hơi quá trớn."
+
+                show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+
+                dn "Không sao đâu."
+
+                hide dn smileTalk
+                show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+
+            "Wow cậu quyết tâm học lớp này đến mức đó luôn":
+                show dn smileTalk at Transform(xpos=0.5, ypos=0.06)
+
+                dn "Đúng rồi tại mình nghe nhiều người nói cô dạy hay lắm nên mình cũng muốn học, cả có bạn bè học chung cũng vui nhé."
+
+                hide dn smileTalk
+                show dn smileNTalk at Transform(xpos=0.5, ypos=0.06)
+
+                show gk sleepingNTalk at Transform(xpos=0.3, ypos=0.06)
+                dn "..."
+                "Nghĩa chỉ về phía Gia Khiếu và Phong Lê."
+                hide gk
+
+                mc "Đúng là thích thật nhỉ."
+                dn "Ừa."
+
         show pl annoyedTalk at Transform(xpos=0.1, ypos=0.06)
 
         pl "Thôi thà tự canh còn hơn mắc nợ thằng kia, có phải lúc đó mày mua chuộc nó bằng bánh mì đúng không?"

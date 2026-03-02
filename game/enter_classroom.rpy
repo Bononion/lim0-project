@@ -59,7 +59,7 @@ label enter_classroom:
     hide duyen Ntalk
     show duyen talk at Transform(xpos=0.3, ypos=0.01)
 
-    duyen "Không sao đâu con. Con là MC, học sinh mới đúng không?"
+    duyen "Không sao đâu con. Con là [player_name], học sinh mới đúng không?"
     duyen "Mẹ con hôm qua có gọi cho cô rồi, con học có gì thấy khó khăn thì hỏi cô nhé"
     duyen "Lớp cũng còn vài chỗ thôi, con cứ ngồi chỗ nào con thấy thoải mái nhé."
     
@@ -85,7 +85,7 @@ label enter_classroom:
     "Vậy mà khi nhìn xuống thì cậu ta lại đang thong thả cầm một hộp xiên bẩn và nhanh tay thoăn thoắt ăn không ngừng nghỉ như thể cậu ta không ở trong lớp vậy."
     
     hide pl eatingNTalk
-    show dn eatingNTalk at Transform(xpos=0.6, ypos=0.06)
+    show dn eatingNTalk at Transform(xpos=0.6, ypos=0.06) with dissolve
 
     "Tự nhiên có một bàn tay khác cũng đang với vào hộp đồ ăn, là cậu bạn còn lại ngồi bên phải. Bạn để ý thấy cậu ta còn đang cầm một túi nhỏ tương ớt xịt lên miếng xúc xích, từ chỗ bạn đứng còn ngửi được mùi Chunsi nịnh mũi ấy."
     "Cậu này ăn cũng không kém, một lúc ăn tận 4 miếng xúc xích liền tù tì. Nhưng nhìn lịch sự hơn cậu bạn đẹp trai một chút."
