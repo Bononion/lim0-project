@@ -222,11 +222,69 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
+# Store for currently visible sprites before hiding (name, attributes pairs)
+default _visible_sprites_before_choice = []
+
+init python:
+    # Character sprite tags used in the game
+    CHARACTER_SPRITE_TAGS = ["mc", "gk", "dn", "pl", "cd", "uk"]
+    
+    def store_visible_sprites():
+        """Store currently visible character sprites before hiding.
+        
+        Stores both the tag name and its current attributes so sprites
+        can be restored with the correct expression/position.
+        """
+        global _visible_sprites_before_choice
+        _visible_sprites_before_choice = []
+        for tag in CHARACTER_SPRITE_TAGS:
+            if renpy.showing(tag):
+                # Get the current attributes of the shown sprite
+                attrs = renpy.get_attributes(tag)
+                _visible_sprites_before_choice.append((tag, attrs))
+    
+    def hide_all_sprites():
+        """Hide all character sprites."""
+        for tag in CHARACTER_SPRITE_TAGS:
+            renpy.hide(tag)
+    
+    def restore_visible_sprites():
+        """Restore previously visible character sprites.
+
+        Restores sprites with their original attributes (expression, position, etc.)
+        """
+        global _visible_sprites_before_choice
+        for tag, attrs in _visible_sprites_before_choice:
+            # Build the image name from tag and attributes
+            if attrs:
+                # Join attributes with spaces (e.g., "happy" or "happy at center")
+                attr_str = " ".join(attrs)
+                renpy.show(tag + " " + attr_str)
+            else:
+                # No attributes, just show with tag
+                renpy.show(tag)
+        _visible_sprites_before_choice = []
+
+    def _speaker_track_callback(event, interact=True, **kwargs):
+        """Track the currently speaking character for the dim/focus effect."""
+        if event == "begin":
+            store._speaking_tag = renpy.get_say_image_tag()
+        elif event == "end":
+            store._speaking_tag = None
+
+    config.all_character_callbacks.append(_speaker_track_callback)
+
 screen choice(items):
     style_prefix "choice"
 
-    # Hide all character sprites when choice menu appears
-    on "show" action [Hide("mc"), Hide("gk"), Hide("dn"), Hide("pl"), Hide("cd"), Hide("uk")]
+    # Hide all character sprites when choice menu appears, store them first
+    on "show" action [
+        Function(store_visible_sprites),
+        Function(hide_all_sprites)
+    ]
+    
+    # Restore sprites when choice screen is hidden (after selection)
+    on "hide" action Function(restore_visible_sprites)
 
     vbox:
         for i in items:
@@ -879,6 +937,11 @@ screen preferences():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+
+                vbox:
+                    style_prefix "check"
+                    label _("Visual")
+                    textbutton _("Speaker Focus") action ToggleField(persistent, "speaker_dim")
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
@@ -1778,3 +1841,44 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+
+################################################################################
+## Snoring Overflow Screen
+################################################################################
+##
+## Special screen for GK's snoring effect where "t" characters extend
+## outside the textbox as specified in the PDF (line 893):
+## "Khọtttttttttttttttttttttttttttttttttt (chữ t đi ra khỏi textbox)"
+##
+
+screen snoring_overflow():
+    zorder 50
+    
+    # The main snoring text that appears to overflow the textbox
+    text "KHỌTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT":
+        style "snoring_overflow_text"
+        at snoring_overflow_transform
+
+style snoring_overflow_text is default:
+    size 28
+    color "#000000"
+    bold False
+    # Allow text to extend beyond its container
+    xalign 0.5
+    yalign 0.9
+
+# Transform that positions the snoring text to appear from the textbox
+# and extend beyond the right edge
+transform snoring_overflow_transform:
+    # Position near the bottom of screen where textbox is
+    xpos 200
+    ypos 650
+    xanchor 0.0
+    yanchor 0.5
+    
+    # Slight animation to make it more dynamic
+    block:
+        linear 0.1 xoffset 5
+        linear 0.1 xoffset -5
+        repeat
