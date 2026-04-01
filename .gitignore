@@ -40,3 +40,5 @@
 
 # Ignore documentation
 /docs/
+/agent_system/
+/knowledge/

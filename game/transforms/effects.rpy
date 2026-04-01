@@ -1,179 +1,265 @@
 # transforms/effects.rpy
-## ============================================
-## VISUAL EFFECT TRANSFORMS
-## ============================================
-##
-## Animation effects for character sprites and UI elements.
-## Use these to add visual feedback and polish.
-##
-## ============================================
+# ATL animation effects and positions.
+#
+# POSITION PARAMETERS (available on every animation effect)
+#
+#   pos   "left" / "center" / "right"  -> 0.20 / 0.50 / 0.80
+#         float 0.0-1.0                -> relative xpos
+#         int/float > 1                -> absolute pixel xpos
+#         None (default)               -> no position override
+#
+#   y     float / int                  -> override ypos
+#         None (default)               -> CHAR_YPOS when pos given, else no override
+#
+# Legacy chaining unchanged:
+#   show dn smile ntalk at char_right, pop_expression
+#
+# New single-call usage:
+#   show dn smile ntalk at pop_expression("right")
+#   show gk neutral ntalk at breathing(0.35, y=0.08)
+#   show pl neutral talk at enter("left")
 
-## ============================================
-## HEAD MOVEMENT EFFECTS
-## ============================================
+## ============================================================
+## Configuration
+## ============================================================
 
-## --- Nodding Animation ---
-transform nod:
+define CHAR_YPOS = 0.06
+define CHAR_XPOS = {"left": 0.20, "center": 0.50, "right": 0.80}
+define CHAR_ENTER_XOFF = {"left": -700, "center": -700, "right": 700}
+
+## ============================================================
+## Python helpers
+## ============================================================
+
+init -1 python:
+
+    def _xpos(pos):
+        # "left"/"center"/"right" -> mapped float
+        # float 0-1 -> relative, int > 1 -> absolute pixel
+        # None -> 0.50 fallback
+        # ATLTransform (Renpy built-in center/left/right) -> extract .xpos
+        if pos is None:
+            return 0.50
+        if isinstance(pos, str):
+            return CHAR_XPOS.get(pos.lower(), 0.50)
+        try:
+            return float(pos)
+        except (TypeError, ValueError):
+            xp = getattr(pos, 'xpos', None)
+            if xp is not None:
+                try:
+                    return float(xp)
+                except (TypeError, ValueError):
+                    pass
+            return 0.50
+
+    def _ypos(y=None):
+        # None -> CHAR_YPOS default
+        return CHAR_YPOS if y is None else float(y)
+
+    def _enter_xoff(pos):
+        # Direction for off-screen entrance slide
+        if pos is None:
+            return -700
+        if isinstance(pos, str):
+            return CHAR_ENTER_XOFF.get(pos.lower(), -700)
+        xp = float(pos) if not hasattr(pos, 'xpos') else float(getattr(pos, 'xpos', 0.5))
+        if xp <= 1.0:
+            return 700 if xp > 0.5 else -700
+        return 700 if xp >= 640 else -700
+
+    class _PosApply(object):
+        # Picklable callable used by ATL's 'function' statement.
+        # Stores pos/y and applies them to the Transform on the first call,
+        # then returns None so ATL advances to the next statement.
+        # Defined as a class (not a closure) so Ren'Py's pickle-based save
+        # system can serialise it correctly.
+        def __init__(self, pos, y):
+            self.pos = pos
+            self.y = y
+
+        def __call__(self, trans, st, at):
+            if self.pos is not None:
+                trans.xpos = _xpos(self.pos)
+                trans.xanchor = 0.5
+                trans.ypos = _ypos(self.y)
+                trans.yanchor = 0.0
+            return None
+
+    def _pos_fn(pos, y):
+        # Factory: returns a _PosApply instance for use in ATL 'function' stmt.
+        return _PosApply(pos, y)
+
+## ============================================================
+## Static position transforms  (replaces positions.rpy)
+## ============================================================
+
+transform at_pos(pos="center", y=None):
+    xpos _xpos(pos) xanchor 0.5 ypos _ypos(y) yanchor 0.0
+
+## Backward-compat aliases
+
+transform char_left:
+    xpos 0.20 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform char_center:
+    xpos 0.50 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform char_right:
+    xpos 0.80 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform char_teacher:
+    xpos 0.50 xanchor 0.5 ypos 0.01 yanchor 0.0
+
+transform char_offscreen_left:
+    xpos -0.2 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform char_offscreen_right:
+    xpos 1.2 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+## ============================================================
+## Entrance / exit / slide animations
+## ============================================================
+
+transform enter(pos="center", y=None):
+    subpixel True
+    xpos _xpos(pos) xanchor 0.5 ypos _ypos(y) yanchor 0.0
+    xoffset _enter_xoff(pos)
+    alpha 0.0
+    ease 0.35 xoffset 0 alpha 1.0
+
+transform slide(pos="center", y=None):
+    subpixel True
+    on show:
+        xpos _xpos(pos) xanchor 0.5 ypos _ypos(y) yanchor 0.0
+    on replace:
+        ease 0.35 xpos _xpos(pos) xanchor 0.5 ypos _ypos(y) yanchor 0.0
+
+transform exit(direction="left"):
+    subpixel True
+    linear 0.5 xpos (-0.2 if direction == "left" else 1.2) alpha 0.0
+
+transform exit_to_left:
+    linear 0.5 xpos -0.2
+
+transform exit_to_right:
+    linear 0.5 xpos 1.2
+
+transform fade_in(pos=None, y=None):
+    function _pos_fn(pos, y)
+    alpha 0.0
+    linear 0.5 alpha 1.0
+
+transform fade_out(pos=None, y=None):
+    function _pos_fn(pos, y)
+    alpha 1.0
+    linear 0.5 alpha 0.0
+
+## ============================================================
+## Head movement effects
+## ============================================================
+
+transform nod(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.1 yoffset 15
     linear 0.1 yoffset -15
     repeat 5
     linear 0.1 yoffset 0
 
-## --- Head Shaking ---
-transform shake_head:
-    linear 0.1 xoffset 15
-    linear 0.1 xoffset -15
+transform nod_effect(pos=None, y=None):
+    function _pos_fn(pos, y)
+    linear 0.1 yoffset 15
+    linear 0.1 yoffset -15
     repeat 5
-    linear 0.1 xoffset 0
+    linear 0.1 yoffset 0
 
-## --- Slow Nod ---
-transform nod_slow:
+transform nod_slow(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.2 yoffset 10
     linear 0.2 yoffset -10
     repeat 3
     linear 0.15 yoffset 0
 
-## --- Nod Effect (alias for nod, for naming consistency with shake_effect) ---
-transform nod_effect:
-    linear 0.1 yoffset 15
-    linear 0.1 yoffset -15
+transform shake_head(pos=None, y=None):
+    function _pos_fn(pos, y)
+    linear 0.1 xoffset 15
+    linear 0.1 xoffset -15
     repeat 5
-    linear 0.1 yoffset 0
+    linear 0.1 xoffset 0
 
-## ============================================
-## IDLE ANIMATIONS
-## ============================================
+## ============================================================
+## Idle animations
+## ============================================================
 
-## --- Breathing Animation ---
-transform breathing:
+transform breathing(pos=None, y=None):
     subpixel True
+    function _pos_fn(pos, y)
     zoom 1.0
     ease 0.3 zoom 1.02
     ease 0.3 zoom 1.0
     repeat
 
-## --- Subtle Sway ---
-transform sway:
+transform sway(pos=None, y=None):
     subpixel True
+    function _pos_fn(pos, y)
     ease 1.0 xoffset 5
     ease 1.0 xoffset -5
     repeat
 
-## ============================================
-## EATING/DRINKING ANIMATIONS
-## ============================================
+## ============================================================
+## Eating / drinking animations
+## ============================================================
 
-## --- Eating/Chewing Animation ---
-transform chewing:
+transform chewing(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.05 xoffset 2 yoffset 2
     linear 0.05 xoffset -2 yoffset -2
     linear 0.05 xoffset -2 yoffset 2
     linear 0.05 xoffset 2 yoffset -2
     repeat
 
-## --- Drinking Animation ---
-transform drinking:
+transform drinking(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.3 yoffset -10
     pause 0.5
     linear 0.3 yoffset 0
 
-## ============================================
-## ENTRANCE ANIMATIONS
-## ============================================
+## ============================================================
+## Emphasis effects
+## ============================================================
 
-## --- Persona-style slide-in (use with a position transform in at-list) ---
-## Works with any xpos transform because it animates xoffset, not xpos.
-##
-## Usage:
-##   show gk neutral ntalk at gk_default, slide_in_left
-##   show pl annoyed ntalk at pl_default, slide_in_left
-##   show dn neutral ntalk at dn_default, slide_in_right
-##
-## Left side (0.20): slide_in_left
-## Right side (0.80): slide_in_right
-## Center (0.50): either, depending on context
+transform pop_expression(pos=None, y=None):
+    function _pos_fn(pos, y)
+    zoom 1.0
+    ease 0.07 zoom 1.12
+    ease 0.07 zoom 1.0
 
-transform slide_in_left:
-    subpixel True
-    xoffset -500
-    alpha 0.0
-    ease 0.3 xoffset 0 alpha 1.0
-
-transform slide_in_right:
-    subpixel True
-    xoffset 500
-    alpha 0.0
-    ease 0.3 xoffset 0 alpha 1.0
-
-## --- Legacy entrance (kept for backward compatibility) ---
-transform enter_from_left:
-    xpos -0.2
-    linear 0.5 xpos 0.1
-
-transform enter_from_right:
-    xpos 1.2
-    linear 0.5 xpos 0.7
-
-transform enter_from_left_slow:
-    xpos -0.2
-    linear 1.0 xpos 0.1
-
-transform enter_from_right_slow:
-    xpos 1.2
-    linear 1.0 xpos 0.7
-
-## --- Fade In ---
-transform fade_in:
-    alpha 0.0
-    linear 0.5 alpha 1.0
-
-## ============================================
-## EXIT ANIMATIONS
-## ============================================
-
-## --- Exit to Left ---
-transform exit_to_left:
-    linear 0.5 xpos -0.2
-
-## --- Exit to Right ---
-transform exit_to_right:
-    linear 0.5 xpos 1.2
-
-## --- Fade Out ---
-transform fade_out:
-    alpha 1.0
-    linear 0.5 alpha 0.0
-
-## ============================================
-## EMPHASIS EFFECTS
-## ============================================
-
-## --- Bounce ---
-transform bounce:
+transform bounce(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.1 yoffset -20
     linear 0.1 yoffset 0
     linear 0.1 yoffset -10
     linear 0.1 yoffset 0
 
-## --- Small Bounce ---
-transform bounce_small:
+transform bounce_small(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.1 yoffset -10
     linear 0.1 yoffset 0
 
-## --- Jump ---
-transform jump:
+transform jump(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.15 yoffset -30
     linear 0.15 yoffset 0
 
-## --- Shiver/Tremble ---
-transform shiver:
+transform shiver(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.05 xoffset 3
     linear 0.05 xoffset -3
     repeat 10
     linear 0.05 xoffset 0
 
-## --- Shake Effect (general purpose) ---
-transform shake_effect:
+transform shake_effect(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.05 xoffset 10
     linear 0.05 xoffset -10
     linear 0.05 xoffset 10
@@ -182,17 +268,17 @@ transform shake_effect:
     linear 0.05 xoffset -5
     linear 0.05 xoffset 0
 
-## ============================================
-## EMOTION EFFECTS
-## ============================================
+## ============================================================
+## Emotion effects
+## ============================================================
 
-## --- Surprised (jolt back) ---
-transform surprised:
+transform surprised(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.1 yoffset -5 xoffset -5
     linear 0.1 yoffset 0 xoffset 0
 
-## --- Flustered (shake) ---
-transform flustered:
+transform flustered(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.05 xoffset 3 yoffset 2
     linear 0.05 xoffset -3 yoffset -2
     linear 0.05 xoffset 3 yoffset -2
@@ -200,50 +286,50 @@ transform flustered:
     repeat 5
     linear 0.05 xoffset 0 yoffset 0
 
-## --- Sad (droop) ---
-transform sad_droop:
+transform sad_droop(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.3 yoffset 10
 
-## ============================================
-## SLEEP EFFECTS
-## ============================================
+## ============================================================
+## Sleep effects
+## ============================================================
 
-## --- Sleeping (slow breathing) ---
-transform sleeping:
+transform sleeping(pos=None, y=None):
     subpixel True
+    function _pos_fn(pos, y)
     ease 0.5 yoffset 3
     ease 0.5 yoffset 0
     repeat
 
-## --- Dozing Off ---
-transform dozing:
+transform dozing(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.5 yoffset 5
     linear 0.5 yoffset 0
     repeat
 
-## ============================================
-## RESET ANIMATION
-## ============================================
+## ============================================================
+## Reset
+## ============================================================
 
-## --- Stop Animation (reset to default) ---
-transform stop_anim:
+transform stop_anim(pos=None, y=None):
+    function _pos_fn(pos, y)
     xoffset 0
     yoffset 0
     zoom 1.0
     alpha 1.0
 
-## ============================================
-## COMBINED EFFECTS
-## ============================================
+## ============================================================
+## Combined effects
+## ============================================================
 
-## --- Nod with Bounce ---
-transform nod_bounce:
+transform nod_bounce(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.1 yoffset -10
     linear 0.1 yoffset 5
     linear 0.1 yoffset 0
 
-## --- Shake and Fade ---
-transform shake_fade:
+transform shake_fade(pos=None, y=None):
+    function _pos_fn(pos, y)
     linear 0.1 xoffset 5
     linear 0.1 xoffset -5
     linear 0.1 alpha 0.8
@@ -253,9 +339,9 @@ transform shake_fade:
     linear 0.1 xoffset 0
     linear 0.1 alpha 1.0
 
-## ============================================
-## HEALTH BAR EFFECT (for game over)
-## ============================================
+## ============================================================
+## UI / game-over effects
+## ============================================================
 
 transform health_shake:
     linear 0.05 xoffset 3 yoffset 3
@@ -263,10 +349,6 @@ transform health_shake:
     linear 0.05 xoffset -3 yoffset 3
     linear 0.05 xoffset 3 yoffset -3
     repeat
-
-## ============================================
-## STAMP SLAM EFFECT (for game over screens)
-## ============================================
 
 transform stamp_slam(delay_time=2.0):
     alpha 1.0
@@ -276,31 +358,8 @@ transform stamp_slam(delay_time=2.0):
     linear 0.15 zoom 1.35
     linear 0.12 zoom 1.0
 
-## ============================================
-## SPEAKER FOCUS (DIM INACTIVE CHARACTERS)
-## ============================================
+## ============================================================
+## Scene transitions
+## ============================================================
 
-## Dims this sprite when a different character is speaking.
-## Controlled by persistent.speaker_dim (set in Preferences).
-##
-## Usage — chain after the position transform on every first show:
-##   show gk neutral ntalk at gk_default, slide_in_left, char_focus("gk")
-##   show pl annoyed ntalk at pl_default, slide_in_left, char_focus("pl")
-##
-## Expression-only swaps don't need it re-added — Ren'Py holds the at-list.
-
-define _DIM_MATRIX = BrightnessMatrix(-0.35) * SaturationMatrix(0.6)
-define _FOCUS_MATRIX = IdentityMatrix()
-
-init python:
-    def _char_matrix(tag):
-        if persistent.speaker_dim and store._speaking_tag is not None and store._speaking_tag != tag:
-            return _DIM_MATRIX
-        return _FOCUS_MATRIX
-
-transform char_focus(tag):
-    subpixel True
-    block:
-        matrixcolor _char_matrix(tag)
-        pause 0.1
-        repeat
+define scene_fade = Fade(0.4, 0.0, 0.4)

@@ -1,15 +1,5 @@
 # scripts/scene_one/setup_player.rpy
-## ============================================
-## PLAYER SETUP
-## Initialize player variables and get input
-## ============================================
-##
-## This scene handles:
-## - Player name input
-## - Player gender selection
-## - Variable initialization
-##
-## ============================================
+# Player name/gender input and variable initialization
 
 label setup_player:
     

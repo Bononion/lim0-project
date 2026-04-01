@@ -1,20 +1,7 @@
 # scripts/scene_one/prologue.rpy
-## ============================================
-## PROLOGUE
-## Player setup and introduction
-## ============================================
-##
-## This scene handles:
-## - Player name input
-## - Player gender selection
-## - Initial narrative
-##
-## ============================================
+# Player setup call and opening street narration
 
 label prologue:
-    # prologue is short, but I separated prologue and player setup for clarity and scalability.
-    # If we want a more elaborate introduction, we can expand this section.
-    
     scene bg streets with fade
     
     call setup_player

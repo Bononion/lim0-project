@@ -1,16 +1,8 @@
 # scripts/scene_one/scene_eatery.rpy
-## ============================================
-## EATERY SCENE
-## Brief scene before the main choice
-## ============================================
-##
-## This scene describes the eatery near the alley.
-## It sets up the atmosphere before the player makes their choice.
-##
-## ============================================
+# Brief eatery atmosphere scene and tutorial narration before the first choice
 
 label scene_eatery:
-    scene bg eatery
+    scene bg eatery with scene_fade
     
     "Nhưng thứ lọt vào ánh mắt bạn không phải con hẻm, mà là quán ăn vỉa hè nằm ngay cạnh nó."
     

@@ -1,19 +1,5 @@
 # scripts/scene_one/seat_screen.rpy
-## ============================================
-## SEAT SELECTION SCREEN
-## Interactive seat selection UI for Scene 1
-## ============================================
-##
-## This screen handles:
-## - Visual seat preview with hover effects
-## - Returns seating choice to caller
-##
-## ROUTING MAPPING (see scene_one_init.rpy lines 79-87):
-## - seat1 → route_phong_start (Phong Le route, fp_pl += 1)
-## - seat2 → route_khieu_start (Gia Khieu route, fp_gk += 1)
-## - seat3 → route_nghia_start (Dai Nghia route, fp_dn += 1)
-##
-## ============================================
+# Interactive seat selection UI; returns "seat1/2/3" for route dispatch
 
 label seat_screen:
     call screen seat_choice
@@ -41,8 +27,6 @@ screen seat_choice():
         add "images/seat 2.png"
     elif preview == "seat3":
         add "images/seat 3.png"
-    # else:
-    #     add "images/seat 1.png"
 
     # ========================================================================
     # !!! DO NOT MODIFY THE SEAT CHOOSING LOGIC BELOW !!!

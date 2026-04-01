@@ -1,26 +1,15 @@
 # scripts/scene_one/meet_gia_khieu.rpy
-## ============================================
-## MEET GIA KHIEU
-## First encounter with Gia Khieu character
-## ============================================
-##
-## This scene handles:
-## - MC following Gia Khieu through the alley
-## - Arriving at the gate
-## - Choice to thank Khieu or not
-##
-## ============================================
+# MC follows Gia Khiếu through the alley to the gate; choice to thank him or not
 
 label meet_gia_khieu:
-    scene bg alley2 with fade
+    scene bg alley2 with scene_fade
     
     "Bạn loại bỏ những suy nghĩ buồn cười kia và quay đầu hướng vào chiếc hẻm đang chờ đợi bạn."
     
     "Bỗng bạn nghe thấy một âm thanh bên cạnh, hình như là một tiếng ngáp. Khi bạn nhìn sang thì thấy một cậu bạn trạc tuổi đi ngang qua."
     
-    show gk back at char_center with dissolve
-    $ renpy.pause(0.3)
-    
+    show gk back at enter("center")
+
     "Cậu ta mặc một cái áo để mà nói đúng thì trông một chín một mười với đồng phục công nhân nhà máy sữa."
     
     "Trong chiếc cặp của cậu ta còn lấp ló một vật màu trắng, khi bạn nheo mắt nhìn kỹ thì đó lại là một cái gối (?)"
@@ -32,11 +21,13 @@ label meet_gia_khieu:
     "Khi gần tới ngã ba hẻm, vì cậu bạn kia đi rất chậm chạp nên bạn không để ý cậu ta đã dừng lại, bạn suýt đâm sầm vào cậu ta nếu không phản ứng đủ nhanh"
     
     # Arriving at the gate
-    scene bg gate with fade
+
+    hide gk
+
+    scene bg gate with scene_fade
     
-    show gk back at char_center with dissolve
-    $ renpy.pause(0.3)
-    
+    show gk back at fade_in("center")
+
     "Bạn quay sang phải nhìn, trước mắt bạn là một ngôi nhà có chiếc cổng sắt đen đơn giản, còn có thể nghe thấy tiếng ồn bên trong vọng ra, bạn nhận ra đây chính là lớp học thêm mẹ bạn đã đăng kí cho bạn."
     
     "Bạn chợt nhớ mẹ bạn đã dặn bạn phải tập trung học, nhưng mặc dù bạn vào muộn 2 tuần so với các bạn khác thì vẫn nên hòa đồng và học hỏi mọi người."
@@ -57,21 +48,18 @@ label meet_gia_khieu:
         "Cảm ơn cậu ta":
             $ fp_gk += 1
             $ thanked_khieu = True
-            
+
             mc "Cảm ơn cậu."
-            show gk neuNTalk at gk_center with dissolve
-            $ renpy.pause(0.3)
+            show gk neutral ntalk at enter("center")
             unknown "*gật đầu* ..."
-            hide gk neuNTalk
-        
+            hide gk
+
         "Không nói gì":
             mc "..."
-            show gk neuNTalk at gk_center with dissolve
-            $ renpy.pause(0.3)
+            show gk neutral ntalk at enter("center")
             unknown "..."
-            hide gk neuNTalk
-    
-    hide unknown
+            hide gk
+
     "Bạn bước vào trong."
     
     return

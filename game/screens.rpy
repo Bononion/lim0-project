@@ -265,14 +265,6 @@ init python:
                 renpy.show(tag)
         _visible_sprites_before_choice = []
 
-    def _speaker_track_callback(event, interact=True, **kwargs):
-        """Track the currently speaking character for the dim/focus effect."""
-        if event == "begin":
-            store._speaking_tag = renpy.get_say_image_tag()
-        elif event == "end":
-            store._speaking_tag = None
-
-    config.all_character_callbacks.append(_speaker_track_callback)
 
 screen choice(items):
     style_prefix "choice"
@@ -937,11 +929,6 @@ screen preferences():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
-
-                vbox:
-                    style_prefix "check"
-                    label _("Visual")
-                    textbutton _("Speaker Focus") action ToggleField(persistent, "speaker_dim")
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
