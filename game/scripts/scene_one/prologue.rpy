@@ -8,14 +8,18 @@ label prologue:
     
     "Một buổi chiều thứ 5 nóng nực tháng 8…"
     
-    "Bạn đang rảo bước trên vỉa hè, trên lưng là một chiếc cặp sách nặng nề. Bạn vừa xuống khỏi chiếc Grob Bike và đang trên đường tới một nơi rất quan trọng."
+    "Trên lưng bạn là một chiếc cặp sách nặng nề. Chiếc Grob Bike di chuyển rề rà qua những ngã tư tắc nghẽn."
     
-    "Giờ tan tầm Sài Gòn không tha cho ai, kể cả bạn, chuyến xe gấp gáp bạn đặt để kịp tới lớp cũng lâu hơn bình thường. Bạn lo sợ về việc bạn đang chậm trễ so với kế hoạch ban đầu."
+    "Giờ tan tầm Sài Gòn không tha cho ai, kể cả bạn, chuyến xe gấp gáp bạn đặt để kịp tới lớp cũng lâu hơn bình thường. Bạn lo sợ về việc đi trễ."
+
+    "Ngay khi xe dừng, bạn nhanh chóng cảm ơn bác tài và nhảy xuống xe. Tay bạn liền đánh giá 5 sao."
     
-    "Bạn nhìn lên khỏi chiếc điện thoại, xung quanh bạn là không khí xô bồ của thành phố sau 5 giờ."
+    "Khi bạn nhìn lên khỏi chiếc điện thoại, xung quanh bạn là không khí xô bồ của thành phố buổi xế chiều."
     
-    "Con hẻm nhỏ không đông đúc, nhưng vẫn có xe qua lại, cùng với các quán ăn lề đường tạo nên một cảm giác rất riêng."
+    "Đoạn đường Ngô Quyền không đông đúc lắm, nhưng vẫn có dòng người cả xe qua lại, cùng với các quán ăn lề đường tạo nên một cảm giác rất Sài Gòn."
     
-    "Bạn cứ tiếp tục bước và không biết đến khi nào, bạn nhìn thấy con hẻm bạn cần rẽ vào. Cảm giác như đang chơi một trò chơi đi tìm kho báu vậy."
+    "Bạn cứ tiếp tục bước vội. Không biết từ lúc nào, bạn nhìn thấy con hẻm bạn cần rẽ vào. Cảm giác như đang chơi một trò chơi đi tìm kho báu vậy."
+
+    "Vừa nghĩ bạn bỏ điện thoại vào túi"
     
     return

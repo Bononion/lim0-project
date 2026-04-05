@@ -26,7 +26,8 @@ label meet_gia_khieu:
 
     scene bg gate with scene_fade
     
-    show gk back at fade_in("center")
+    with dissolve
+    show gk back at char_center, fade_in
 
     "Bạn quay sang phải nhìn, trước mắt bạn là một ngôi nhà có chiếc cổng sắt đen đơn giản, còn có thể nghe thấy tiếng ồn bên trong vọng ra, bạn nhận ra đây chính là lớp học thêm mẹ bạn đã đăng kí cho bạn."
     
@@ -42,15 +43,20 @@ label meet_gia_khieu:
     unknown "..."
     
     # CHOICE: Thank Khiếu or not
-    hide gk
     
+    hide gk
+
     menu menu_thank_khieu:
+
         "Cảm ơn cậu ta":
+            show gk back at char_center, fade_in
+
             $ fp_gk += 1
             $ thanked_khieu = True
 
             mc "Cảm ơn cậu."
-            show gk neutral ntalk at enter("center")
+            show gk neutral ntalk at fade_in, nod_bounce
+
             unknown "*gật đầu* ..."
             hide gk
 

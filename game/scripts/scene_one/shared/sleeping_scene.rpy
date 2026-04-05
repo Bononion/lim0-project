@@ -704,42 +704,34 @@ label gia_khieu_sleeping_scene:
     
     # State changes - NO dissolve
     hide dn smile talk
-    show dn smile ntalk    
-    hide dn smile ntalk
-    show dn smile talk    
+    show dn smile talk at char_right
     dn "Chắc dạo này mệt quá, thấy ngủ nhiều hơn bình thường"
     
     hide dn smile talk
-    show dn smile ntalk    
+    show dn smile talk
     dn "Có gì cậu bỏ qua nhé, nó không cố ý đâu"
     
-    hide dn smile ntalk
-    show dn smile talk    
     dn "Nhìn vậy chứ giỏi lắm đó nha"
     
-    hide dn smile talk
-    show dn smile ntalk    
     dn "Chắc nó thua cái máy tính Casio mỗi cái tem chống hàng giả thôi."
     
-    hide dn smile ntalk
-    show dn smile talk    
     dn "À thua pin nữa, thằng này giải toán 5p là phải sạc pin 3 tiếng lận."
     
-    hide dn smile talk
+    show dn smileNTalk
     
     pl "Ê Khiếu, dậy chào bạn mới kìa!"
 
     # GK already shown at start, but re-entering - use dissolve
-    show gk sleeping ntalk at enter("center")
+    show gk sleepingTalk at char_center
 
     gk "(mắt lim dim, lí nhí) \"Chào...\""
 
+    show gk sleepingNTalk
     show dn smile talk at enter("right")
     show pl annoyed ntalk
     dn "Đó, [player_gender] thấy chưa? Thằng này suốt ngày chỉ biết ngủ."
     
-    hide dn smile talk
-    show dn smile ntalk at char_right, pop_expression
+    show dn smileNTalk at char_right
     hide pl annoyed ntalk
     show pl annoyed talk at char_left, pop_expression
     pl "Mày dậy coi! Ướt hết tập tao rồi!"

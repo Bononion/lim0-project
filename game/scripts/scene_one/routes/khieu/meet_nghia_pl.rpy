@@ -2,7 +2,7 @@
 # Player meets Nghia and Phong Le while sitting next to Gia Khiếu
 
 label route_khieu_meet_nghia_pl:
-    "(Bỗng bạn cảm thấy có hai đôi mắt đang nhìn mình chằm chằm.)"
+    "Bỗng bạn cảm thấy có hai đôi mắt đang nhìn mình chằm chằm."
 
     # 2-character scene - PL left, DN right
     show pl surprised talk at enter("left")
@@ -26,13 +26,13 @@ label route_khieu_meet_nghia_pl:
     hide pl surprised talk
     hide dn surprised ntalk
 
-    "(Sau đó bạn nghe thấy tiếng ai đó kêu oai oái, \"ai bảo mày kéo mạnh thế, dừng đi, dừng đi\")"
+    "Sau đó bạn nghe thấy tiếng ai đó kêu oai oái, \"ai bảo mày kéo mạnh thế, dừng đi, dừng đi\""
 
     # 2-character scene
     show pl smile talk at enter("left")
     show dn smile ntalk at enter("right")
 
-    "(Thấy bạn nhìn lại, hai cậu bạn kia liền thu lại ánh mắt nhìn chằm chằm.)"
+    "Thấy bạn nhìn lại, hai cậu bạn kia liền thu lại ánh mắt nhìn chằm chằm."
 
     pl "Xin lỗi bạn nha, hihi do lần đầu thấy chuyện lạ ấy mà,"
     pl "Mình là Phong.... nhoàm.... Lê"
@@ -40,7 +40,7 @@ label route_khieu_meet_nghia_pl:
     hide pl smile talk
     show pl smile ntalk at char_left, pop_expression
 
-    "(Phong vừa giới thiệu vừa ăn thêm xiên bẩn)"
+    "Phong vừa giới thiệu vừa ăn thêm xiên bẩn"
 
     hide dn smile ntalk
     show dn smile talk at char_right, pop_expression
@@ -50,7 +50,7 @@ label route_khieu_meet_nghia_pl:
     hide dn smile talk
     hide pl smile ntalk
 
-    "(Chưa kịp hoàn hồn thì bạn nghe thấy tiếng người bạn mới của mình thều thào)"
+    "Chưa kịp hoàn hồn thì bạn nghe thấy tiếng người bạn mới của mình thều thào"
 
     # Single character - GK at default center position
     show gk wakingup talk at enter("center")
@@ -67,7 +67,7 @@ label route_khieu_meet_nghia_pl:
     hide dn surprised talk
     show dn neutral ntalk at char_right, pop_expression
 
-    "(Bạn chào hai người và giới thiệu bản thân, cùng lúc đó hỏi chuyện lạ hai người nhắc tới là gì)"
+    "Bạn chào hai người và giới thiệu bản thân, cùng lúc đó hỏi chuyện lạ hai người nhắc tới là gì"
 
     hide dn neutral ntalk
     show pl neutral talk at char_left, pop_expression
@@ -84,7 +84,7 @@ label route_khieu_meet_nghia_pl:
     hide dn neutral talk
     hide pl neutral ntalk
 
-    "(Bạn cười trừ, giải thích rằng nãy trong lúc ngồi xuống bạn đã lỡ làm Gia Khiếu tỉnh ngủ, sau đó lại quay sang xin lỗi Gia Khiếu lần nữa.)"
+    "Bạn cười trừ, giải thích rằng nãy trong lúc ngồi xuống bạn đã lỡ làm Gia Khiếu tỉnh ngủ, sau đó lại quay sang xin lỗi Gia Khiếu lần nữa."
 
     show pl smile talk at enter("left")
     show dn smile ntalk at enter("right")
@@ -92,7 +92,7 @@ label route_khieu_meet_nghia_pl:
     pl "Chắc vậy nên mới dậy haha, mà bình thường nó ngủ sâu lắm."
     pl "Thôi kệ cho nó ngủ tiếp đi tí còn so đáp án với nó nữa"
 
-    "(Phong Lê sau đó quay sang phía bạn.)"
+    "Phong Lê sau đó quay sang phía bạn."
 
     pl "[player_name] nhỉ, cậu ăn xiên bẩn không"
 
@@ -106,14 +106,14 @@ label route_khieu_meet_nghia_pl:
     hide pl smile ntalk
     show pl surprised talk at char_left, pop_expression
 
-    "(Phong ngạc nhiên nhìn hộp xốp trống trơn ở trên đùi mình rồi cười trừ.)"
+    "Phong ngạc nhiên nhìn hộp xốp trống trơn ở trên đùi mình rồi cười trừ."
 
     pl "haha xin lỗi cậu nha nãy mình mải nói chuyện quá, ăn hết mất mà không biết"
 
     hide pl surprised talk
     show pl surprised ntalk at char_left, pop_expression
 
-    "(Bạn cười và nói không sao, dù sao cũng là đồ ăn của hai người họ.)"
+    "Bạn cười và nói không sao, dù sao cũng là đồ ăn của hai người họ."
 
     hide pl surprised ntalk
     show dn smile talk at enter("right")
@@ -127,13 +127,13 @@ label route_khieu_meet_nghia_pl:
 
     hide pl smile talk
 
-    "(Nghĩa lấy tay véo tai Phong)"
+    "Nghĩa lấy tay véo tai Phong"
 
     show pl annoyed talk at enter("left")
 
     pl "A đau đau, đừng véo nữa tao biết rồi mà"
 
-    "(Sau khi thả tai Phong Lê ra, Nghĩa hiền từ quay về phía bạn)"
+    "Sau khi thả tai Phong Lê ra, Nghĩa hiền từ quay về phía bạn"
 
     hide pl annoyed talk
     show dn smile talk at enter("right")
@@ -274,12 +274,11 @@ label route_khieu_meet_nghia_pl:
             show pl annoyed talk at enter("left")
             pl "[player_name] đừng gọi mình như thế"
 
-            hide pl annoyed talk
-            show pl annoyed ntalk at char_left, pop_expression
+            show pl fakecryTalk at char_left, pop_expression
 
             pl "Mình bị kiểu sởn gai ốc ấy (huhu)"
 
-            hide pl annoyed ntalk
+            hide pl
 
             show dn neutral talk at enter("right")
             dn "Thôi trêu nhiều nó khóc đấy"
@@ -302,7 +301,7 @@ label route_khieu_meet_nghia_pl:
             hide pl annoyed talk
             show pl annoyed ntalk at char_left, pop_expression
 
-            "(Phong Lê giả vờ vén tay áo lên xong chỉ lên cánh tay, bạn thấy da cậu ta trắng đến mức chói mắt. Sao con trai trắng được như vậy nhỉ)"
+            "Phong Lê giả vờ vén tay áo lên xong chỉ lên cánh tay, bạn thấy da cậu ta trắng đến mức chói mắt. Sao con trai trắng được như vậy nhỉ"
 
             hide pl annoyed ntalk
             menu:
@@ -311,25 +310,25 @@ label route_khieu_meet_nghia_pl:
 
                     hide pl annoyed ntalk
 
-                    show pl sad talk at enter("left")
+                    show pl fakecryTalk at enter("left")
                     pl "[player_name] ơi.. mình không thích thật luôn á"
 
-                    hide pl sad talk
+                    hide pl
 
                     show dn neutral talk at enter("right")
                     dn "Thôi thôi tha nó đi [player_name]"
 
                     hide dn neutral talk
 
-                    "(Phong như một quả bóng xì hơi, bạn để ý còn thấy ở khóe mắt cậu ấy hơi ươn ướt. Không lẽ cậu ấy bị trêu đến khóc thật)"
-                    "(Bạn cảm thấy hơi quá đáng và xin lỗi Phong Lê)"
+                    "Phong như một quả bóng xì hơi, bạn để ý còn thấy ở khóe mắt cậu ấy hơi ươn ướt. Không lẽ cậu ấy bị trêu đến khóc thật"
+                    "Bạn cảm thấy hơi quá đáng và xin lỗi Phong Lê"
 
                     show pl neutral talk at enter("left")
                     pl "..Không sao, chỉ cần [player_name] hứa không gọi mình là Phong nữa là được"
 
                     hide pl neutral talk
 
-                    "(Bạn liền hứa, ngay lập tức sau đó Phong Lê lại quay trở lại trạng thái vui vẻ lúc nãy)"
+                    "Bạn liền hứa, ngay lập tức sau đó Phong Lê lại quay trở lại trạng thái vui vẻ lúc nãy"
 
                     show dn neutral talk at enter("right")
                     dn "Thay đổi xoành xoạch như phụ nữ mang thai nhỉ"
@@ -357,14 +356,14 @@ label route_khieu_meet_nghia_pl:
 
                     hide dn neutral ntalk
 
-                    "(Bạn gật gù đồng ý với Nghĩa. Phong Lê nhìn như có vẻ sắp đánh cậu chàng mắt kính tới nơi)"
+                    "Bạn gật gù đồng ý với Nghĩa. Phong Lê nhìn như có vẻ sắp đánh cậu chàng mắt kính tới nơi"
 
                     show pl annoyed talk at enter("left")
                     pl "[player_name] sau đừng trêu tớ như thế nữa nha"
 
                     hide pl annoyed talk
 
-                    "(Bạn đồng ý và xin lỗi vì lúc nãy đã trêu cậu ấy)"
+                    "Bạn đồng ý và xin lỗi vì lúc nãy đã trêu cậu ấy"
 
         "Đồng ý và nói sau này sẽ gọi cậu ấy là Phong Lê":
             $ fp_pl += 1
@@ -389,7 +388,7 @@ label route_khieu_meet_nghia_pl:
 
             hide dn neutral talk
 
-            "(Bạn ngạc nhiên, không nghĩ việc gọi tên lại nghiêm trọng vậy)"
+            "Bạn ngạc nhiên, không nghĩ việc gọi tên lại nghiêm trọng vậy"
 
             show pl neutral talk at enter("left")
             pl "Người mày nói là kiểu"
@@ -406,7 +405,7 @@ label route_khieu_meet_nghia_pl:
 
             hide pl neutral talk
 
-            "(Bạn bật cười và cả Nghĩa cũng thế, trong đó Phong nhìn hơi xấu hổ khi nhắc lại chuyện này)"
+            "Bạn bật cười và cả Nghĩa cũng thế, trong đó Phong nhìn hơi xấu hổ khi nhắc lại chuyện này"
 
             show pl neutral talk at char_left, pop_expression
             pl "Đúng là [player_name] là người tốt, chứ đâu như ai kia…"
@@ -428,7 +427,7 @@ label route_khieu_meet_nghia_pl:
 
             hide pl annoyed talk
 
-            "(Bạn cười trước màn đấu đá của hai người)"
+            "Bạn cười trước màn đấu đá của hai người"
 
     show pl neutral talk at enter("left")
     show dn neutral ntalk at char_right, pop_expression

@@ -37,10 +37,10 @@ label setup_player:
     "Bạn là nam hay nữ?"
 
     menu menu_gender:
-        "Male":
+        "Nam":
             $ player_gender = "ông"
 
-        "Female":
+        "Nữ":
             $ player_gender = "bà"
 
     # Defensive default in case future branches `jump`/`call` without visiting seat UI.

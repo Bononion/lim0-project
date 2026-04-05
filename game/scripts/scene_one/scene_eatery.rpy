@@ -6,7 +6,9 @@ label scene_eatery:
     
     "Nhưng thứ lọt vào ánh mắt bạn không phải con hẻm, mà là quán ăn vỉa hè nằm ngay cạnh nó."
     
-    "Những chiếc ghế nhựa xanh đỏ và chiếc bàn nhựa quốc dân được sắp xếp để tối ưu (chiếm dụng) không gian vỉa hè. Ngồi ở đó là những học sinh giống bạn, ngồi theo tốp ba tốp năm cặm cụi vào ăn những hộp xiên bẩn ngon lành thơm phức và hóng hớt nói chuyện."
+    "Những chiếc ghế nhựa xanh đỏ và chiếc bàn nhựa quốc dân được sắp xếp để tối ưu (chiếm dụng) không gian vỉa hè. "
+    
+    "Ngồi ở đó là những học sinh giống bạn, ngồi theo tốp ba tốp năm cặm cụi vào ăn những hộp xiên bẩn ngon lành thơm phức và hóng hớt nói chuyện."
     
     "Hương thơm của món đồ ăn này như đang gọi mời bạn."
     

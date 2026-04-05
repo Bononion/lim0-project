@@ -2,42 +2,42 @@
 # Common ending sequence after all Scene 1 routes
 
 label scene_end:
-    scene bg classroom with scene_fade
+    show bg class with scene_fade
 
-    "(Lớp học tiếp tục trong không khí yên tĩnh.)"
+    "Lớp học tiếp tục trong không khí yên tĩnh."
 
-    "(Cô Duyên đi từng bàn kiểm tra bài làm của học sinh.)"
+    "Cô Duyên đi từng bàn kiểm tra bài làm của học sinh."
 
-    show cd neutral talk at char_teacher
+    show cd neutral talk at char_teacher, fade_in
     cd "...Các con làm hết bài này nhé, tuần sau mình sẽ sửa."
 
     hide cd neutral talk
 
-    "(Cả lớp bắt đầu giải tán.)"
+    "Cả lớp bắt đầu giải tán."
 
-    "(Bỗng Phong Lê đứng trước mặt bạn.)"
+    "Bỗng Phong Lê đứng trước mặt bạn."
 
-    show pl enthusiast talk at enter("left")
+    show pl enthusiast talk at enter("left"), char_center
 
     pl "[player_name] ơi!"
     pl "Nãy mình quên xin facebook của [player_name] á"
     pl "Có gì [player_name] kết bạn với mình nha!"
     pl "Kết bạn cả Nghĩa với Khiếu luôn để tiện trao đổi bài tập nè"
 
-    hide pl enthusiast talk
+    show pl smileNTalk at fade_out
 
-    "(Bạn kết bạn với cả 3 người trên FB sau đó chào tạm biệt họ và đi về nhà.)"
+    "Bạn kết bạn với cả 3 người trên FB sau đó chào tạm biệt họ và đi về nhà."
+
+    hide pl
 
     if seating_choice != "standing":
-        show dn smile talk at enter("right")
-        show pl neutral ntalk at enter("left")
+        show dn smileTalk at enter("left")
 
         dn "Hẹn gặp lại [player_name] nha!"
 
-        hide dn smile talk
-        show dn smile ntalk at char_right, pop_expression
+        show dn neutralNTalk at fade_out
         hide pl neutral ntalk
-        show pl neutral talk at char_left, pop_expression
+        show pl neutral talk at char_center, enter
 
         pl "Có gì tuần sau hỏi bọn mình nhé!"
 
@@ -60,14 +60,13 @@ label scene_end:
     else:
         "Các bạn trong lớp chào tạm biệt nhau."
 
-    scene bg alley with scene_fade
+    scene bg alley2 with scene_fade
+    
+    "Bạn bước ra khỏi lớp, đi qua con hẻm nhỏ."
 
-    "(Bạn bước ra khỏi lớp, đi qua con hẻm nhỏ.)"
+    "Ánh đèn đường đã bắt đầu sáng lên."
 
-    "(Ánh đèn đường đã bắt đầu sáng lên.)"
-
-    "(Một buổi học đầu tiên thú vị đã kết thúc.)"
-
+    "Một buổi học đầu tiên thú vị đã kết thúc."
     # Display relationship points summary
     centered "{b}=== KẾT THÚC SCENE 1 ==={/b}"
 
