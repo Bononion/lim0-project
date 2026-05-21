@@ -4,6 +4,5 @@
 label route_nghia_start:
     call route_nghia_meet_nghia
     call route_nghia_meet_pl
-    call friendship_history
     call gia_khieu_sleeping_scene_1
     return

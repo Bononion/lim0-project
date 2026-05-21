@@ -54,14 +54,14 @@ label meet_gia_khieu:
             $ fp_gk += 1
             $ thanked_khieu = True
 
-            mc "Cảm ơn cậu."
+            "Bạn cảm ơn cậu ta"
             show gk neutral ntalk at fade_in, nod_bounce
 
             unknown "*gật đầu* ..."
             hide gk
 
         "Không nói gì":
-            mc "..."
+            "..."
             show gk neutral ntalk at enter("center")
             unknown "..."
             hide gk

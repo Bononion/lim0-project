@@ -8,7 +8,7 @@ label friendship_history:
     show dn smile talk at enter("right")
     show pl neutral ntalk at enter("left")
 
-    mc "Wao hai cậu biết nhau từ lúc đấy á?"
+    "Bạn ngạc nhiên hỏi hai người biết nhau từ lúc nào"
 
     hide dn smile talk
     show dn smile ntalk at char_right, pop_expression
@@ -40,7 +40,7 @@ label friendship_history:
         hide pl neutral talk
         show pl neutral ntalk at char_left, pop_expression
 
-        mc "Hậu thuẫn á, lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này."
+        "Bạn nói rằng lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này"
 
         hide pl neutral ntalk
         hide dn smile ntalk
@@ -80,7 +80,7 @@ label friendship_history:
                 hide dn awkward talk
                 show dn awkward ntalk at char_right, pop_expression
 
-                mc "Xin lỗi nha hình như mình giỡn hơi quá trớn."
+                "Bạn xin lỗi vì thấy hình như mình giỡn hơi quá trớn"
 
                 hide dn awkward ntalk
                 show dn smile talk at char_right, pop_expression
@@ -104,7 +104,7 @@ label friendship_history:
                 "Nghĩa chỉ về phía Gia Khiếu và Phong Lê."
                 hide gk
 
-                mc "Đúng là thích thật nhỉ."
+                "Bạn gật gù đồng ý"
                 dn "Ừa."
 
         hide pl neutral ntalk
@@ -130,7 +130,7 @@ label friendship_history:
         show pl annoyed ntalk at char_left, pop_expression
         hide dn awkward ntalk
 
-        mc "Hai cậu thân nhau phết nhỉ."
+        "Bạn nói rằng hai người có vẻ thân nhau"
 
         hide pl annoyed ntalk
         show dn neutral talk at enter("right")
@@ -157,7 +157,7 @@ label friendship_history:
         hide pl neutral talk
         show pl neutral ntalk at char_left, pop_expression
 
-        mc "Hậu thuẫn á, lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này."
+        "Bạn nói rằng lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này"
 
         hide pl neutral ntalk
         hide dn smile ntalk
@@ -174,7 +174,7 @@ label friendship_history:
         hide dn neutral talk
         show dn neutral ntalk at char_right, pop_expression
 
-        mc "Đúng là thích thật nhỉ."
+        "Bạn gật gù đồng ý"
 
         hide dn neutral ntalk
         show dn smile talk at char_right, pop_expression
@@ -205,7 +205,7 @@ label friendship_history:
         show pl annoyed ntalk at char_left, pop_expression
         hide dn awkward ntalk
 
-        mc "Hai cậu thân nhau phết nhỉ."
+        "Bạn nói rằng hai người có vẻ thân nhau"
 
         hide pl annoyed ntalk
         show dn neutral talk at enter("right")
@@ -233,7 +233,7 @@ label friendship_history:
         hide pl neutral talk
         show pl neutral ntalk at char_left, pop_expression
 
-        mc "Hậu thuẫn á, lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này."
+        "Bạn nói rằng lúc mình mới vào cũng canh slot ghê lắm, không ngờ còn cách này"
 
         hide pl neutral ntalk
         hide dn smile ntalk
@@ -255,7 +255,7 @@ label friendship_history:
                 hide dn awkward talk
                 show dn awkward ntalk at char_right, pop_expression
 
-                mc "Xin lỗi nha hình như mình giỡn hơi quá trớn."
+                "Bạn xin lỗi vì thấy hình như mình giỡn hơi quá trớn"
 
                 hide dn awkward ntalk
                 show dn smile talk at char_right, pop_expression
@@ -279,7 +279,7 @@ label friendship_history:
                 "Nghĩa chỉ về phía Gia Khiếu và Phong Lê."
                 hide gk
 
-                mc "Đúng là thích thật nhỉ."
+                "Bạn gật gù đồng ý"
                 dn "Ừa."
 
         show pl annoyed talk at enter("left")
@@ -304,7 +304,7 @@ label friendship_history:
         show pl annoyed ntalk at char_left, pop_expression
         hide dn awkward ntalk
 
-        mc "Hai cậu thân nhau phết nhỉ."
+        "Bạn nói rằng hai người có vẻ thân nhau"
 
         hide pl annoyed ntalk
         show dn neutral talk at enter("right")

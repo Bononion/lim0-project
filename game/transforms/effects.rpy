@@ -26,6 +26,18 @@ transform slide(pos="center", y=None):
     on replace:
         ease 0.35 xpos _xpos(pos) xanchor 0.5 ypos _ypos(y) yanchor 0.0
 
+transform slide_in_left:
+    subpixel True
+    xoffset -700
+    alpha 0.0
+    ease 0.35 xoffset 0 alpha 1.0
+
+transform slide_in_right:
+    subpixel True
+    xoffset 700
+    alpha 0.0
+    ease 0.35 xoffset 0 alpha 1.0
+
 transform exit(direction="left"):
     subpixel True
     linear 0.5 xpos (-0.2 if direction == "left" else 1.2) alpha 0.0
@@ -237,3 +249,15 @@ transform stamp_slam(delay_time=2.0):
 ## ============================================================
 
 define scene_fade = Fade(0.4, 0.0, 0.4)
+
+## ============================================================
+## Speaker focus (dim non-speaking characters)
+## ============================================================
+
+default persistent.speaker_dim = True
+
+init python:
+    def char_focus(tag):
+        # Returns a no-op transform placeholder; actual dim logic requires
+        # a speaker-tracking system wired to character callbacks.
+        return Transform(alpha=1.0)

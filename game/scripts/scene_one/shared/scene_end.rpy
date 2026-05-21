@@ -6,6 +6,9 @@ label scene_end:
 
     "Lớp học tiếp tục trong không khí yên tĩnh."
 
+    hide dn
+    hide gk
+
     "Cô Duyên đi từng bàn kiểm tra bài làm của học sinh."
 
     show cd neutral talk at char_teacher, fade_in

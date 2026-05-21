@@ -3,7 +3,7 @@
 
 label route_standing_scene:
     
-    mc "..."
+    "..."
     
     show cd talk at char_teacher, enter
 
@@ -12,7 +12,7 @@ label route_standing_scene:
     hide cd talk
     show cd ntalk at char_teacher, pop_expression
     
-    mc "Con đứng học được không ạ?"
+    "Bạn hỏi có đứng học được không"
     
     hide cd ntalk
     show cd talk at char_teacher
@@ -22,17 +22,17 @@ label route_standing_scene:
     hide cd talk
     show cd ntalk at char_teacher, pop_expression
 
-    mc "Dạ con đứng học thấy tập trung hơn cô ạ"
-
+    "Bạn nói rằng đứng học thấy tập trung hơn"
+    
     hide cd ntalk
     show cd talk at char_teacher
 
     duyen "Vậy… con cứ làm sao cho thoải mái nhé"
 
     hide cd talk
-    show cd ntalk at char_teacher
+    show cd ntalk at char_teacher, pop_expression
     
-    mc "Dạ vâng ạ"
+    "Bạn gật đầu"
     
     hide cd ntalk
     
@@ -153,18 +153,14 @@ label route_standing_scene:
     menu:
         "Ừ":
             $ trait_nc += 1
-            mc "Ừ"
-            
+
         "Ừm, mình chưa gặp dạng này bao giờ":
             $ trait_ss += 1
 
             show dn smile ntalk at char_center, fade_in
 
-            mc "Ừm, mình chưa gặp dạng này bao giờ"
-            
         "Ừa, dạng này lạ quá, mình chưa bao giờ làm, mình nghĩ nãy giờ không ra":
             $ trait_cm += 1
-            mc "Ừa, dạng này lạ quá, mình chưa bao giờ làm, mình nghĩ nãy giờ không ra"
     
     hide dn neutral ntalk
     show dn smile talk at char_center, fade_in
@@ -418,7 +414,7 @@ label standing_accept_help:
                 jump standing_thank_both
 
     label standing_self_rely:
-        mc "Mình cũng nên tự làm và sẽ chỉ hỏi những câu quan trọng"
+        "Bạn nói mình cũng nên tự làm và sẽ chỉ hỏi những câu quan trọng"
 
         show dn neutral talk at fade_in, char_right
 
@@ -429,7 +425,7 @@ label standing_accept_help:
         jump standing_menu_after
 
     label standing_thank_both:
-        mc "Cảm ơn hai bạn nhiều nhé"
+        "Bạn cảm ơn hai người đã giúp đỡ"
 
         show pl laugh talk at enter("left"), char_center
 

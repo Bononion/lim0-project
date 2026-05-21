@@ -4,6 +4,5 @@
 label route_phong_start:
     call route_phong_food_scene
     call route_phong_after_food_scene
-    call friendship_history
     call gia_khieu_sleeping_scene_2
     return

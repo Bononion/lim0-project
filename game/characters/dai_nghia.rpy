@@ -232,8 +232,27 @@ image dn surprisedNTalk = Transform(
     zoom = 0.5
 )
 
-## --- Sweaty Laugh Expression ---
+## --- Sweaty Expression ---
 image dn sweatyTalk = Transform(
+    Animation(
+        "images/DN/dn_sweaty_talk_open.png", 4,
+        "images/DN/dn_sweaty_talk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+image dn sweatyNTalk = Transform(
+    Animation(
+        "images/DN/dn_sweaty_notalk_open.png", 4,
+        "images/DN/dn_sweaty_notalk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+## --- Sweaty Laugh Expression ---
+image dn sweatylaughTalk = Transform(
     Animation(
         "images/DN/dn_sweatylaugh_talk_open.png", 4,
         "images/DN/dn_sweatylaugh_talk_close.png", 0.1,
@@ -242,10 +261,67 @@ image dn sweatyTalk = Transform(
     zoom = 0.5
 )
 
-image dn sweatyNTalk = Transform(
+image dn sweatylaughNTalk = Transform(
     Animation(
         "images/DN/dn_sweatylaugh_talk_open.png", 4,
         "images/DN/dn_sweatylaugh_talk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+## --- Sweaty Smile Expression ---
+image dn sweatysmileTalk = Transform(
+    Animation(
+        "images/DN/dn_sweatysmile_talk_open.png", 4,
+        "images/DN/dn_sweatysmile_talk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+image dn sweatysmileNTalk = Transform(
+    Animation(
+        "images/DN/dn_sweatysmile_notalk_open.png", 4,
+        "images/DN/dn_sweatysmile_notalk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+## --- Sweaty Tired Expression (talk only) ---
+image dn sweatytiredTalk = Transform(
+    Animation(
+        "images/DN/dn_sweatytired_talk_open.png", 4,
+        "images/DN/dn_sweatytired_talk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+image dn sweatytiredNTalk = Transform(
+    Animation(
+        "images/DN/dn_sweatytired_talk_open.png", 4,
+        "images/DN/dn_sweatytired_talk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+## --- Smug Expression (talk only) ---
+image dn smugTalk = Transform(
+    Animation(
+        "images/DN/dn_smug_talk_open.png", 4,
+        "images/DN/dn_smug_talk_close.png", 0.1,
+        loop = True
+    ),
+    zoom = 0.5
+)
+
+image dn smugNTalk = Transform(
+    Animation(
+        "images/DN/dn_smug_talk_open.png", 4,
+        "images/DN/dn_smug_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -308,11 +384,11 @@ image dn eatNTalk = Transform(
     zoom = 0.5
 )
 
-## --- Sorry Expression (fallback to awkward) ---
+## --- Sorry Expression (talk only; ntalk falls back to talk) ---
 image dn sorryTalk = Transform(
     Animation(
-        "images/DN/dn_awkward_talk_open.png", 4,
-        "images/DN/dn_awkward_talk_close.png", 0.1,
+        "images/DN/dn_sorry_talk_open.png", 4,
+        "images/DN/dn_sorry_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -320,8 +396,8 @@ image dn sorryTalk = Transform(
 
 image dn sorryNTalk = Transform(
     Animation(
-        "images/DN/dn_awkward_notalk_open.png", 4,
-        "images/DN/dn_awkward_notalk_close.png", 0.1,
+        "images/DN/dn_sorry_talk_open.png", 4,
+        "images/DN/dn_sorry_talk_close.png", 0.1,
         loop = True
     ),
     zoom = 0.5
@@ -356,6 +432,14 @@ image dn surprised talk = "dn surprisedTalk"
 image dn surprised ntalk = "dn surprisedNTalk"
 image dn sweaty talk = "dn sweatyTalk"
 image dn sweaty ntalk = "dn sweatyNTalk"
+image dn sweatylaugh talk = "dn sweatylaughTalk"
+image dn sweatylaugh ntalk = "dn sweatylaughNTalk"
+image dn sweatysmile talk = "dn sweatysmileTalk"
+image dn sweatysmile ntalk = "dn sweatysmileNTalk"
+image dn sweatytired talk = "dn sweatytiredTalk"
+image dn sweatytired ntalk = "dn sweatytiredNTalk"
+image dn smug talk = "dn smugTalk"
+image dn smug ntalk = "dn smugNTalk"
 image dn sad talk = "dn sadTalk"
 image dn sad ntalk = "dn sadNTalk"
 image dn postcry talk = "dn postcryTalk"

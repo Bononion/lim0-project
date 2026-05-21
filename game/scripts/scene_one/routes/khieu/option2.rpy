@@ -4,74 +4,65 @@
 label route_khieu_option2:
     $ fp_gk -= 1
 
-    show gk annoyed talk at enter("center")
+    show gk annoyedTalk at gk_default, slide_in_left, char_focus("gk")
 
     gk "...vẫn nghe giảng mà"
     gk "ai vậy"
 
-    hide gk annoyed talk
-    show gk annoyed ntalk at char_center, pop_expression
-    show pl confused talk at enter("left")
+    show gk annoyedNTalk
+    show pl confusedTalk at pl_default, slide_in_left, char_focus("pl")
 
     pl "Là bạn mới trong lớp đó, nói chuyện nãy giờ luôn mà"
 
-    hide pl confused talk
-    show pl confused ntalk at char_left, pop_expression
-    hide gk annoyed ntalk
-    show gk annoyed talk at char_center, pop_expression
+    show pl confusedNTalk
+    show gk annoyedTalk
 
     gk "Ai hỏi?"
 
-    hide gk annoyed talk
-    show gk annoyed ntalk at char_center, pop_expression
-    hide pl confused ntalk
-    show pl confused talk at char_left, pop_expression
+    show gk annoyedNTalk
+    show pl confusedTalk
 
     pl "???"
 
-    hide pl confused talk
-    show pl confused ntalk at char_left, pop_expression
-    hide gk annoyed ntalk
-    show gk annoyed talk at char_center, pop_expression
+    show pl confusedNTalk
+    show gk annoyedTalk
 
     gk "Có học, làm xong bài rồi nên mình ngủ thôi"
 
-    hide gk annoyed talk
-    hide pl confused ntalk
+    hide gk annoyedTalk
+    hide pl confusedNTalk
 
-    mc "Ủa nhưng mà mới vào học được 10 phút mà..."
+    "Bạn ngạc nhiên nói rằng mới vào học được 10 phút thôi"
 
-    show dn smile talk at enter("right")
+    show dn smileTalk at dn_default, slide_in_right, char_focus("dn")
 
     dn "Nhiêu đó là đủ cho Khiếu rồi á"
     dn "Tiện thể mày tra đáp án với tao được không?"
 
-    hide dn smile talk
-    show dn smile ntalk at char_right, pop_expression
-    show gk wakingup talk at enter("center")
+    show dn smileNTalk
+    show gk wakingupTalk at gk_default, slide_in_left, char_focus("gk")
 
     gk "Ờ..."
 
-    hide gk wakingup talk
-    show gk wakingup ntalk at char_center, pop_expression
-    hide dn smile ntalk
-    show pl enthusiast talk at enter("left")
+    show gk wakingupNTalk
+    hide dn smileNTalk
+    show pl enthusiastTalk at pl_default, slide_in_left, char_focus("pl")
 
     pl "Tao nữa tao nữa"
 
-    hide pl enthusiast talk
-    hide gk wakingup ntalk
+    hide pl enthusiastTalk
+    hide gk wakingupNTalk
 
-    mc "/Bộ là thiên tài lười biếng hả.../"
+    "Bạn nghĩ bộ là thiên tài lười biếng hả..."
 
     "(Sau đó Gia Khiếu giơ lên một tờ đề cương chi chít dấu tích đỏ, trên cùng là 2 số 10 to đùng. Làm sao cậu ta lại có được 2 con 10 trên một bài kiểm tra vậy, hình như hơi ảo quá thì phải.)"
 
-    "(Bạn lắc đầu bỏ qua suy nghĩ đó, liền nhờ Gia Khiếu sau này có gì giúp đỡ bạn nhiều vì bạn hơi yếu môn toán.)"
+    "Bạn lắc đầu bỏ qua suy nghĩ đó, liền nhờ Gia Khiếu sau này có gì giúp đỡ bạn nhiều vì bạn hơi yếu môn toán."
 
-    show gk wakingup talk at enter("center")
+    show gk wakingupTalk at gk_default, slide_in_left, char_focus("gk")
 
     gk "(giơ tay ok lên)"
 
-    hide gk wakingup talk
+    hide gk wakingupTalk
 
     return

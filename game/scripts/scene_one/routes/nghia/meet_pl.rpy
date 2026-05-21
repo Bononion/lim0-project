@@ -19,12 +19,12 @@ label route_nghia_meet_pl:
             pl "Mình bị nổi da gà ấy"
 
             hide pl angry talk
-            show pl angry ntalk at char_left, pop_expression
+            show pl angry ntalk at char_center
 
             "Bạn xin lỗi Phong Lê vè hỏi tại sao cậu ấy không thích được gọi là Phong?"
 
             hide pl angry ntalk
-            show pl angry talk at char_left, pop_expression
+            show pl angry talk at pop_expression, char_center
             pl "Tại nghe nó trống mà nó kì kì sao á, còn gọi Hồng Phong thì nghe nó bị sến lắm"
 
             hide pl angry talk
@@ -32,7 +32,7 @@ label route_nghia_meet_pl:
             menu:
                 "Tiếp tục gọi là Phong":
                     $ fp_pl -= 2
-                    show pl angry ntalk at shake_effect
+                    show pl fakecryTalk at shake_effect, char_left
                     $ phong_name = "Phong"
                     pl "Đã kêu đừng gọi vậy rồi mà"
 
@@ -40,7 +40,7 @@ label route_nghia_meet_pl:
                     pl "Nghe như kiểu bị gọi kiểm tra miệng ấy"
 
                     hide pl angry talk
-                    show pl angry ntalk at char_left, pop_expression
+                    show pl fakecryNTalk at char_left, pop_expression
                 "Gọi Phong Lê":
                     $ phong_name = "Phong Lê"
                     pl "Đó, gọi Phong Lê nghe hay hơn quá trời luôn."
@@ -57,18 +57,17 @@ label route_nghia_meet_pl:
             pl "Đâu như ai kia"
 
             show pl confusedNTalk at fade_out
-            
     # DN enters from right side - use char_right for 2-character scene
-    show dn neutral talk at enter("right")
     dn "Mày lại bắt người khác gọi mày là Phong Lê hả"
 
-    hide dn neutral talk
+    hide pl
+    show pl neutralNTalk at char_left
     show dn neutral ntalk at char_right, pop_expression
 
     dn "Đúng là cái loại làm màu"
 
 
-    show pl annoyed talk at enter("left")
+    show pl annoyed talk at char_left
     pl "Những người chê tôi không biết gì về toán"
 
     show pl annoyedNTalk
@@ -113,6 +112,9 @@ label route_nghia_meet_pl:
 
     pl "Nhưng mà mày phải nhờ người giúp mới vô được, mà còn vô học sau tao nữa"
     
+    hide dn
+    hide pl
+
     "Bạn tò mò làm sao để được giúp vào lớp, do chính bạn cũng đã phải canh slot trong lớp rất lâu mới vào được."
 
     # Shared ending — "may mắn / cửa sau" menu, teacher reputation dialogue,

@@ -44,8 +44,7 @@ label enter_classroom:
 
     "Cậu ta nhận bài xong nhấc chân lề mề tiến tới hàng 2 của dãy bàn gần nhất."
 
-    mc "Con chào cô ạ."
-    mc "Hôm đầu đi học con không quen đường lắm nên có đến trễ, con xin lỗi cô ạ."
+    "Bạn chào cô và nói hôm đầu đi học không quen đường nên đến trễ, rồi xin lỗi"
 
     hide cd ntalk
     show cd talk at char_teacher
@@ -58,7 +57,7 @@ label enter_classroom:
 
     show cd Ntalk
 
-    mc "Dạ vâng ạ, con cảm ơn cô."
+    "Bạn cảm ơn cô"
 
     show cd Ntalk at fade_out
 

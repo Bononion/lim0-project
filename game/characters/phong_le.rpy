@@ -443,14 +443,18 @@ image pl glasssmileNTalk = Transform(
     zoom = 0.5
 )
 
-## Glass Thinking (single sprite)
+## Glass Thinking (no dedicated talk variant; NTalk animates open/close)
 image pl glasthinkingTalk = Transform(
     "images/PL/pl_glassthinking_notalk_open.png",
     zoom = 0.5
 )
 
 image pl glasthinkingNTalk = Transform(
-    "images/PL/pl_glassthinking_notalk_open.png",
+    Animation(
+        "images/PL/pl_glassthinking_notalk_open.png", 5,
+        "images/PL/pl_glassthinking_notalk_close.png", 0.1,
+        loop = True
+    ),
     zoom = 0.5
 )
 

@@ -93,6 +93,18 @@ transform char_right:
 transform char_teacher:
     xpos 0.50 xanchor 0.5 ypos 0.01 yanchor 0.0
 
+transform pl_default:
+    xpos 0.20 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform gk_default:
+    xpos 0.50 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform dn_default:
+    xpos 0.80 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
+
+transform cd_default:
+    xpos 0.50 xanchor 0.5 ypos 0.01 yanchor 0.0
+
 transform char_offscreen_left:
     xpos -0.2 xanchor 0.5 ypos CHAR_YPOS yanchor 0.0
 

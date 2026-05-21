@@ -141,7 +141,7 @@ image gk annoyedNTalk = Transform(
 ## --- Sadden Expression ---
 image gk saddenTalk = Transform(
     Animation(
-        "images/GK/gk_sadden_talk_open.png", 4,
+        "images/GK/gk_sadden_talk_copen.png", 4,
         "images/GK/gk_sadden_talk_close.png", 0.1,
         loop = True
     ),
