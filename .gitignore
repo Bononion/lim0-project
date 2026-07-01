@@ -1,44 +1,48 @@
-# Directories that Ren'Py changes files in.
-/game/saves
-/game/cache
+# ============================================================
+# Root level — only game/ and project essentials are tracked
+# ============================================================
+/*
+!/game/
+!/.gitignore
+!/CLAUDE.md
 
-# Compiled script files. These are important for saving, and so should
-# be preserved by developer and build systems after the game has been released.
+# ============================================================
+# Ren'Py runtime / generated files
+# ============================================================
+
+# Player save data
+/game/saves/
+
+# Compiled script and module cache
+/game/cache/
 /game/**/*.rpyc
 /game/**/*.rpymc
 
-# Files Ren'Py can generate.
+# Ren'Py backup/temp files
 /game/**/*.bak
 /game/**/*.new
 /game/**/*.old
 
-# Error, log, and output files.
-/errors.txt
-/files.txt
-/image_cache.txt
-/log.txt
-/save_dump.txt
-/traceback.txt
+# Ren'Py engine libraries (large binaries, not game content)
+/game/libs/
 
-# Launcher-generated files.
-/dialogue.tab
-/dialogue.txt
-/strings.json
+# Auto-generated translation stubs
+/game/tl/
 
-# System files to ignore
+# ============================================================
+# Design / planning documents (not game content)
+# ============================================================
+/game/**/*.docx
+/game/**/*.pdf
+
+# ============================================================
+# Sample / placeholder assets
+# ============================================================
+/game/images/GALLERY SAMPLE/
+/game/images/GALLERY_SAMPLE/
+
+# ============================================================
+# Editor and OS files
+# ============================================================
 .DS_Store
-.vscode/
-
-# Keep only: game/, .kilocode/
-# Everything else at root level is ignored
-/*
-!/game/
-!/.kilocode/
-
-# But keep .gitignore itself
-!/.gitignore
-
-# Ignore documentation
-/docs/
-/agent_system/
-/knowledge/
+/game/.vscode/

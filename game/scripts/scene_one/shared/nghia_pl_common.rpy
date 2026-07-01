@@ -37,7 +37,7 @@ label route_shared_nghia_pl_end:
             dn "Không phải cửa sau đâu"
 
             hide dn neutral talk
-            show dn neutral ntalk at char_right, pop_expression
+            show dn neutral ntalk at pop_expression, char_center
 
             dn "Tụi tui giỡn vậy chứ tui vẫn đường đường chính chính đăng ký lớp á"
 
@@ -51,9 +51,11 @@ label route_shared_nghia_pl_end:
     dn "Mọi người đều bảo cô dạy hay lắm nên tui muốn học"
 
     show dn neutral talk at char_center
-    show dn neutralNTalk at bounce_small
+    show dn neutralTalk at bounce_small
 
     dn "Với lại cũng có bạn học chung nữa nên vui hơn"
+
+    show dn neutralNTalk
 
     "(Nghĩa nói rồi chỉ Phong Lê với Gia Khiếu)"
 
@@ -73,7 +75,8 @@ label route_shared_nghia_pl_end:
 
     "Bạn nói rằng có bạn học chung cũng vui hơn thiệt"
 
-    show dn smile talk at enter("right")
+    hide dn
+    show dn smile talk at enter("right"), char_center
     dn "Ừa, cảm giác đỡ bỡ ngỡ hơn"
 
     hide dn smile talk
@@ -86,21 +89,21 @@ label route_shared_nghia_pl_end:
     hide pl neutral talk
     show pl neutral ntalk at char_left
     hide dn smile ntalk
-    show dn awkward talk at enter("right")
+    show dn awkward talk at char_right
 
     dn "Haha có đâu ba"
 
     hide dn awkward talk
-    show dn awkward ntalk at char_right, pop_expression
+    show dn awkward ntalk at char_right
     hide pl neutral ntalk
     show pl smile talk at char_left, pop_expression
 
     pl "Lại còn chối, nhìn mặt mày là biết rồi"
 
     hide pl smile talk
-    show pl smile ntalk at char_left, pop_expression
+    show pl smile ntalk at char_left
     hide dn awkward ntalk
-    show dn awkward talk at char_right, pop_expression
+    show dn awkward talk at char_right
 
     dn "Không hề luôn"
 

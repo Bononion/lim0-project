@@ -44,3 +44,9 @@ define pl_dn = Character(
     "Phong & Nghĩa",
     who_style = "name_pl_dn"
 )
+
+define narrator_cs = Character(
+    None,
+    window_style = "cutscene_window",
+    what_style = "cutscene_dialogue"
+)

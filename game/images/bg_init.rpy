@@ -25,6 +25,14 @@ image bg eatery = im.Scale("images/Background/Eatery.png", 1920, 1080)
 image bg food stall = im.Scale("images/bg/street vendor.jpg", 1920, 1080)
 
 ## ============================================
+## CUTSCENE ILLUSTRATIONS
+## ============================================
+
+image cutscene lhp = "images/CUT SCENE-ILLUSTRATION/LHP.png"
+image cutscene ptnk = "images/CUT SCENE-ILLUSTRATION/PTNK.png"
+image cutscene tdn = "images/CUT SCENE-ILLUSTRATION/TDN.png"
+
+## ============================================
 ## GAME OVER BACKGROUNDS
 ## ============================================
 

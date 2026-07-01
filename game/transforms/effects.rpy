@@ -245,6 +245,17 @@ transform stamp_slam(delay_time=2.0):
     linear 0.12 zoom 1.0
 
 ## ============================================================
+## Cutscene pan (for 1920x1080 illustration backgrounds)
+## ============================================================
+
+transform cutscene_pan:
+    subpixel True
+    zoom 1.05
+    xalign 0.0
+    yalign 0.5
+    ease 12.0 xalign 1.0
+
+## ============================================================
 ## Scene transitions
 ## ============================================================
 
@@ -261,3 +272,29 @@ init python:
         # Returns a no-op transform placeholder; actual dim logic requires
         # a speaker-tracking system wired to character callbacks.
         return Transform(alpha=1.0)
+
+transform invincible_wobble:
+    subpixel True
+    pause 0.35
+    linear 0.04 xoffset -18
+    linear 0.04 xoffset 15
+    linear 0.04 xoffset -12
+    linear 0.04 xoffset 10
+    linear 0.04 xoffset -8
+    linear 0.04 xoffset 6
+    linear 0.04 xoffset -4
+    linear 0.04 xoffset 2
+    linear 0.06 xoffset 0
+
+transform invincible_jitter_loop:
+    subpixel True
+    block:
+        choice:
+            linear 0.04 xoffset -8 yoffset 6
+        choice:
+            linear 0.04 xoffset 8 yoffset -6
+        choice:
+            linear 0.04 xoffset -5 yoffset -8
+        choice:
+            linear 0.04 xoffset 6 yoffset 8
+        repeat

@@ -68,32 +68,41 @@ label enter_classroom:
     "Tại đó có 3 người đã ngồi sẵn"
 
     # Gia Khiếu — center seat, already asleep
-    show gk sleeping ntalk at enter("center")
+    window hide
+    show cutscene ptnk at cutscene_pan with dissolve
 
-    "Cậu bạn Gia Khiếu, ngồi ở rìa ngoài cùng gần lối đi đang gục đầu xuống bàn, thở đều như đang ngủ."
+    narrator_cs "Cậu bạn Gia Khiếu, ngồi ở rìa ngoài cùng gần lối đi đang gục đầu xuống bàn, thở đều như đang ngủ."
 
-    "Chiếc túi ni lông đựng hai hộp xiên bẩn kia đã không còn trong tầm mắt nữa, thay vào đó là một chiếc gối đặt nửa trên bàn nửa chơi vơi giữa không trung. Hình như cậu ta còn đang đeo cả bịt mắt (???)"
-
+    narrator_cs "Chiếc túi ni lông đựng hai hộp xiên bẩn kia đã không còn trong tầm mắt nữa,"
+    narrator_cs "thay vào đó là một chiếc gối đặt nửa trên bàn nửa chơi vơi giữa không trung. Hình như cậu ta còn đang đeo cả bịt mắt (???)"
     # Phong Lê — left seat, slides in from the left
-    show gk sleeping at fade_out
-    show pl eating ntalk at enter, char_left
+    show cutscene lhp at cutscene_pan with dissolve
 
-    "Người ngồi giữa nhưng cách một chỗ so với Gia Khiếu lại khá thu hút. Cậu ấy trông có vẻ cao ráo với khuôn mặt ưa nhìn, điển trai, bạn nghĩ trong lòng số người đẹp trai như vậy mà bạn biết chắc đếm trên đầu ngón tay."
-    "Vậy mà khi nhìn xuống thì cậu ta lại đang thong thả cầm một hộp xiên bẩn và nhanh tay thoăn thoắt ăn không ngừng nghỉ như thể cậu ta không ở trong lớp vậy."
-
+    narrator_cs "Người ngồi giữa nhưng cách một chỗ so với Gia Khiếu lại khá thu hút."
+    narrator_cs "Cậu ấy trông có vẻ cao ráo với khuôn mặt ưa nhìn, điển trai,"
+    narrator_cs "bạn nghĩ trong lòng số người đẹp trai như vậy mà bạn biết chắc đếm trên đầu ngón tay."
+    narrator_cs "Vậy mà khi nhìn xuống thì cậu ta lại đang thong thả cầm một hộp xiên bẩn" 
+    narrator_cs "và nhanh tay thoăn thoắt ăn không ngừng nghỉ như thể cậu ta không ở trong lớp vậy."
+    
     # Đại Nghĩa — right seat, slides in from the right
-    show dn eating ntalk at enter("right")
+    show cutscene tdn at cutscene_pan with dissolve
 
-    "Tự nhiên có một bàn tay khác cũng đang với vào hộp đồ ăn, là cậu bạn còn lại ngồi bên phải. Bạn để ý thấy cậu ta còn cầm một túi nhỏ tương ớt xịt lên miếng xúc xích, từ chỗ bạn đứng còn ngửi được mùi Chunsi nịnh mũi ấy."
-    "Cậu này ăn cũng không kém, một lúc ăn tận 4 miếng xúc xích liền tù tì. Nhưng nhìn lịch sự hơn cậu bạn đẹp trai một chút."
+    narrator_cs "Tự nhiên có một bàn tay khác cũng đang với vào hộp đồ ăn, là cậu bạn còn lại ngồi bên phải."
+    narrator_cs "Bạn để ý thấy cậu ta còn cầm một túi nhỏ tương ớt xịt lên miếng xúc xích," 
+    narrator_cs "từ chỗ bạn đứng còn ngửi được mùi Chunsi nịnh mũi ấy."
+    narrator_cs "Cậu này ăn cũng không kém, một lúc ăn tận 4 miếng xúc xích liền tù tì." 
+    narrator_cs "Nhưng nhìn lịch sự hơn cậu bạn đẹp trai một chút."
 
-    show dn eatNTalk at fade_out
-    show pl eatingNTalk
+    
+    narrator_cs "Mùi xiên bẩn trong không khí làm dậy lên một suy nghĩ trong bạn."
+    narrator_cs "Bạn nghi ngờ việc cô Duyên biết về hành động ăn vụng này."
+    narrator_cs "Bạn nghĩ cô biết, nhưng bạn không thể chứng minh được khi cô có vẻ không phản ứng nhiều lắm về chuyện này."
 
-    "Mùi xiên bẩn trong không khí làm dậy lên một suy nghĩ trong bạn. Bạn nghi ngờ việc cô Duyên biết về hành động ăn vụng này. Bạn nghĩ cô biết, nhưng bạn không thể chứng minh được khi cô có vẻ không phản ứng nhiều lắm về chuyện này."
+    scene bg class with scene_fade
+    window show
 
     # Phong notices the player — re-enters with a smile
-    show pl smileTalk -talk -eating at enter
+    show pl smileTalk -talk -eating at enter, char_center, invincible_wobble
 
     "Rồi cậu bạn ngồi giữa như để ý thấy bạn, cậu ta nở một nụ cười thật tươi khi trong mồm vẫn còn đồ ăn."
 

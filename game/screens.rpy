@@ -175,6 +175,20 @@ style say_dialogue:
     color "#000000"
     adjust_spacing False
 
+style cutscene_window is window:
+    background None
+
+style cutscene_dialogue is say_dialogue:
+    color "#FFD040"
+    xpos 0.5
+    xanchor 0.5
+    xsize 1400
+    textalign 0.5
+    size 48
+    outlines [(3, "#A05218", 0, 0)]
+    line_spacing 12
+    kerning 2
+
 ## Input screen ################################################################
 ##
 ## This screen is used to display renpy.input. The prompt parameter is used to
@@ -483,9 +497,9 @@ screen navigation():
             imagebutton auto "gui/mm_start_%s.png"  xpos 527 ypos 763 action Start()
             imagebutton auto "gui/mm_load_%s.png"   xpos 572 ypos 924 action ShowMenu("load")
             imagebutton auto "gui/mm_option_%s.png" xpos 561 ypos 855 action ShowMenu("preferences")
-            imagebutton auto "gui/mm_dn_%s.png"     xpos 612 ypos 193 action ShowMenu("dn")
-            imagebutton auto "gui/mm_gk_%s.png"     xpos 730 ypos 707 action ShowMenu("gk")
-            imagebutton auto "gui/mm_pl_%s.png"     xpos 302 ypos 263 action ShowMenu("pl")
+            imagebutton auto "gui/mm_dn_%s.png"     xpos 612 ypos 193 action ShowMenu("dn_gallery")
+            imagebutton auto "gui/mm_gk_%s.png"     xpos 730 ypos 707 action ShowMenu("gk_gallery")
+            imagebutton auto "gui/mm_pl_%s.png"     xpos 302 ypos 263 action ShowMenu("pl_gallery")
 
             if renpy.variant("pc"):
                 imagebutton auto "gui/mm_quit_%s.png" xpos 586 ypos 957 action Quit(confirm=True)

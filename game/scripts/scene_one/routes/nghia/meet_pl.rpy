@@ -62,11 +62,11 @@ label route_nghia_meet_pl:
 
     hide pl
     show pl neutralNTalk at char_left
-    show dn neutral ntalk at char_right, pop_expression
+    show dn neutral talk at char_right, pop_expression
 
     dn "Đúng là cái loại làm màu"
 
-
+    show dn neutralNTalk
     show pl annoyed talk at char_left
     pl "Những người chê tôi không biết gì về toán"
 
@@ -78,7 +78,7 @@ label route_nghia_meet_pl:
 
     pl "Mình cũng ráng sửa nó lắm rồi mà có ăn thua đâu…"
 
-    show pl neutralTalk at char_left, pop_expression
+    show pl neutralTalk at char_left
 
     pl "Tại nó gọi quen từ hồi 2 đứa mình học cấp 1 rồi"
 
